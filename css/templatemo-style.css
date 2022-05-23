@@ -327,6 +327,10 @@ h1,h2,h3,h4,h5
 
 /* start contact */
 
+#contact {
+    background: url('../images/Dark-Woods-Banner.jpg');
+}
+
 #contact address
     {
       padding-bottom: 18px;
@@ -415,7 +419,7 @@ footer hr
     }
 .social-icon li a:hover
     {
-        color: #D43F52;
+        color: rgb(0, 0, 0);
     }
 /* end social icon */
 #portrait {
