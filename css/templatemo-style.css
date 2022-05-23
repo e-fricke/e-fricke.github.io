@@ -327,10 +327,6 @@ h1,h2,h3,h4,h5
 
 /* start contact */
 
-#contact {
-    background-color: rgb(66, 66, 66);
-}
-
 #contact address
     {
       padding-bottom: 18px;
@@ -425,4 +421,8 @@ footer hr
 #portrait {
     border-radius: 50%;
     border: white 1px solid;
+}
+
+#devicons {
+    font-size: 60px;
 }
