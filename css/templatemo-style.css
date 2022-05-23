@@ -328,7 +328,7 @@ h1,h2,h3,h4,h5
 /* start contact */
 
 #contact {
-    background: url('../images/Dark-Woods-Banner.jpg');
+    background-color: rgb(66, 66, 66);
 }
 
 #contact address
