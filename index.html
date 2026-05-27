@@ -21,12 +21,16 @@
       --muted: #9aa4b2;
       --border: rgba(255,255,255,0.08);
       --accent: #7dd3fc;
+      --accent2: #a78bfa;
     }
 
     body {
       margin: 0;
       font-family: Inter, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(125,211,252,0.14), transparent 40%),
+        radial-gradient(circle at top right, rgba(167,139,250,0.10), transparent 45%),
+        var(--bg);
       color: var(--text);
       line-height: 1.75;
     }
@@ -45,6 +49,7 @@
       background: rgba(255,255,255,0.03);
       padding: 26px;
       margin-top: 18px;
+      backdrop-filter: blur(10px);
     }
 
     h1 {
@@ -61,13 +66,7 @@
       color: var(--text);
     }
 
-    p, li {
-      color: var(--text);
-    }
-
-    .muted {
-      color: var(--muted);
-    }
+    p, li { color: var(--text); }
 
     .topbar {
       margin-bottom: 18px;
@@ -76,7 +75,7 @@
     }
 
     .hero {
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .block {
@@ -84,6 +83,33 @@
       padding-left: 14px;
       margin: 16px 0;
       color: var(--text);
+      background: rgba(125,211,252,0.04);
+      border-radius: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    /* METRIC STRIP (RESTORED SIGNAL CONTEXT) */
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+      margin-bottom: 10px;
+    }
+
+    .signal {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .signal strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
     }
 
     .placeholder {
@@ -114,11 +140,11 @@
     .metric strong {
       display: block;
       margin-bottom: 4px;
-      color: var(--text);
     }
 
     @media (max-width: 900px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
+      .signal-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 600px) {
@@ -133,11 +159,11 @@
 
 <div class="wrap">
 
-  <!-- ABOVE THE FOLD (RESTORED + HN READY) -->
-
   <div class="topbar">
     Eric Fricke · fricke.ea@gmail.com
   </div>
+
+  <!-- ABOVE THE FOLD (UNCHANGED STRUCTURE + RESTORED SIGNAL STRIP) -->
 
   <div class="hero">
 
@@ -149,9 +175,29 @@
       event-driven onboarding, AI-assisted content pipelines, and orchestration across CRM + API infrastructure.
     </div>
 
-    <p class="muted">
+    <p>
       The system was not a prototype. It ran in production and directly affected onboarding, content delivery, and sales workflows.
     </p>
+
+    <!-- RESTORED SIGNAL METRICS STRIP -->
+    <div class="signal-grid">
+
+      <div class="signal">
+        <strong>60 Days → 3 Weeks</strong>
+        Onboarding reduction
+      </div>
+
+      <div class="signal">
+        <strong>&lt; 2 Hours</strong>
+        Support response time across ~90 clients
+      </div>
+
+      <div class="signal">
+        <strong>~4x Growth</strong>
+        Revenue increase within ~70 days
+      </div>
+
+    </div>
 
   </div>
 
@@ -336,7 +382,7 @@ The key insight was structural rather than purely technical:
 
   </div>
 
-  <div class="card muted">
+  <div class="card">
     Eric Fricke · fricke.ea@gmail.com
   </div>
 
