@@ -7,7 +7,7 @@
 
 <title>Eric Fricke | AI Operational Systems Case Study</title>
 
-<meta name="description" content="Production AI operational system: event-driven onboarding, AI content pipelines, CRM + API workflow orchestration in a real agency environment." />
+<meta name="description" content="AI operational systems case study: event-driven onboarding, AI content pipelines, workflow orchestration inside a production agency environment." />
 <meta name="robots" content="index, follow" />
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,27 +15,40 @@
 
 <style>
 
-:root {
-  --bg: #05060a;
-  --text: #eaf0f8;
-  --muted: #9aa4b2;
-  --border: rgba(255,255,255,0.10);
-  --accent: #7dd3fc;
-  --accent2: #a78bfa;
+/* =========================
+   HARD GLOBAL TEXT SAFETY
+   ========================= */
+
+* {
+  box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
-  font-family: Inter, sans-serif;
+  padding: 0;
   background:
     radial-gradient(circle at top left, rgba(125,211,252,0.14), transparent 40%),
     radial-gradient(circle at top right, rgba(167,139,250,0.10), transparent 45%),
-    var(--bg);
-  color: var(--text);
+    #05060a;
+
+  color: #eaf0f8 !important; /* FORCE FIX FOR BLACK TEXT BUG */
+  font-family: Inter, sans-serif;
   line-height: 1.75;
 }
 
-a { color: inherit; text-decoration: none; }
+p, li, span, div, h1, h2, h3, h4 {
+  color: #eaf0f8 !important;
+}
+
+/* links */
+a {
+  color: #eaf0f8;
+  text-decoration: none;
+}
+
+/* =========================
+   LAYOUT
+   ========================= */
 
 .wrap {
   max-width: 1100px;
@@ -51,11 +64,11 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   margin-bottom: 18px;
   font-size: 14px;
-  color: var(--muted);
+  color: rgba(234,240,248,0.7);
 }
 
 .topbar a {
-  color: var(--text);
+  color: #eaf0f8;
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
@@ -66,24 +79,23 @@ h1 {
   letter-spacing: -0.04em;
   margin-bottom: 10px;
 
-  background: linear-gradient(135deg, #ffffff, var(--accent), var(--accent2));
+  background: linear-gradient(135deg, #ffffff, #7dd3fc, #a78bfa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  color: var(--text);
   opacity: 0.9;
   max-width: 900px;
 }
 
 .meta {
   margin-top: 10px;
-  color: var(--muted);
   font-size: 13px;
+  opacity: 0.7;
 }
 
-/* SYSTEM MAP NAV */
+/* SYSTEM MAP */
 
 .system-map {
   margin-top: 16px;
@@ -98,16 +110,9 @@ h1 {
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.02);
-  color: var(--muted);
-  transition: 0.15s ease;
 }
 
-.system-map a:hover {
-  border-color: rgba(125,211,252,0.5);
-  color: var(--text);
-}
-
-/* SIGNAL CARDS (STABLE FIELD LAYER) */
+/* SIGNAL CARDS */
 
 .signal-grid {
   display: grid;
@@ -150,19 +155,14 @@ h1 {
   opacity: 0.9;
 }
 
-.signal strong,
-.signal div {
-  position: relative;
-  z-index: 1;
-}
-
 .signal strong {
   display: block;
   margin-bottom: 6px;
-  color: #fff;
+  z-index: 1;
+  position: relative;
 }
 
-/* SECTION LINKS ANCHOR STYLE */
+/* SECTIONS */
 
 section {
   margin-top: 26px;
@@ -170,7 +170,7 @@ section {
 }
 
 .card {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 16px;
   background: rgba(255,255,255,0.03);
   padding: 26px;
@@ -186,7 +186,7 @@ h3 { font-size: 1.1rem; margin-top: 22px; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--muted);
+  color: rgba(234,240,248,0.6);
   margin: 18px 0;
   border-radius: 12px;
 }
@@ -205,37 +205,37 @@ h3 { font-size: 1.1rem; margin-top: 22px; }
 
 <div class="wrap">
 
+<!-- HEADER -->
+
 <div class="topbar">
   <strong>Eric Fricke</strong>
   <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
 </div>
 
-<header>
+<h1>AI Operational Systems Case Study</h1>
 
-  <h1>AI Operational Systems Case Study</h1>
+<div class="subtitle">
+A production system built inside a small agency environment that embedded AI into onboarding, content generation, CRM workflows, and operational automation through modular API-driven architecture.
+</div>
 
-  <div class="subtitle">
-    Production system integrating AI into onboarding, content generation, CRM workflows, and sales operations via modular API-driven architecture.
-  </div>
+<div class="meta">
+Workflow systems · AI orchestration · event-driven architecture · human-in-the-loop automation
+</div>
 
-  <div class="meta">
-    Workflow systems · AI orchestration · event-driven architecture · human-in-the-loop automation
-  </div>
+<!-- SYSTEM MAP -->
 
-  <nav class="system-map">
-    <a href="#overview">Overview</a>
-    <a href="#constraints">Constraints</a>
-    <a href="#architecture">Architecture</a>
-    <a href="#onboarding">Onboarding</a>
-    <a href="#content">Content System</a>
-    <a href="#feedback">Feedback Loop</a>
-    <a href="#outcomes">Outcomes</a>
-    <a href="#limits">Limitations</a>
-  </nav>
+<nav class="system-map">
+  <a href="#overview">Overview</a>
+  <a href="#constraints">Constraints</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#onboarding">Onboarding</a>
+  <a href="#content">Content System</a>
+  <a href="#feedback">Feedback Loop</a>
+  <a href="#outcomes">Outcomes</a>
+  <a href="#limits">Limitations</a>
+</nav>
 
-</header>
-
-<!-- SIGNAL LAYER -->
+<!-- SIGNALS -->
 
 <div class="signal-grid">
 
@@ -251,12 +251,12 @@ h3 { font-size: 1.1rem; margin-top: 22px; }
 
   <div class="signal">
     <strong>~4x Growth</strong>
-    Revenue increase (~70 days)
+    Revenue increase within ~70 days
   </div>
 
 </div>
 
-<!-- DOSSIER -->
+<!-- FULL CASE STUDY RESTORED -->
 
 <section id="overview">
 <div class="card">
@@ -285,7 +285,7 @@ h3 { font-size: 1.1rem; margin-top: 22px; }
 <ul>
 <li>No dedicated engineering team at project start</li>
 <li>Limited budget (API + SaaS tooling)</li>
-<li>Non-technical stakeholder evolution</li>
+<li>Evolving requirements from non-technical stakeholders</li>
 <li>Single primary builder</li>
 <li>Human approval required for all outputs</li>
 </ul>
@@ -358,7 +358,7 @@ h3 { font-size: 1.1rem; margin-top: 22px; }
 
 <ul>
 <li>Onboarding: 60 days → 3 weeks</li>
-<li>Support: &lt; 2 hours (~90 clients)</li>
+<li>Support: < 2 hours (~90 clients)</li>
 <li>Revenue: ~4x growth in ~70 days</li>
 <li>All outputs human-gated</li>
 </ul>
