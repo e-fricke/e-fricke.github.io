@@ -671,32 +671,312 @@
             </div>
           </div>
         </div>
+<!-- REPLACE ONLY THE EXISTING CASE STUDY SECTION WITH THIS -->
 
-        <div class="col-md-6 col-xl-3">
-          <div class="metric-card">
-            <div class="metric-number">
-              ~4x
-            </div>
+<section id="case-study" class="content-card glass">
 
-            <div class="metric-label">
-              Revenue growth within ~70 days
-            </div>
-          </div>
+  <h2>
+    Building a Modular AI-Native Operations System in a Small Agency Environment
+  </h2>
+
+  <h3>Overview</h3>
+
+  <p>
+    A small digital marketing agency was facing a familiar scaling problem:
+    increasing client demand, slow onboarding cycles, inconsistent content production, and limited operational capacity without proportional increases in headcount.
+  </p>
+
+  <p>
+    To address this, I designed and implemented an internal system that combined existing CRM infrastructure with API-based AI tools to automate and standardize core parts of client onboarding, content generation, and internal sales workflows.
+  </p>
+
+  <p>
+    The system was built iteratively inside a real production environment, primarily by a single developer, using modular architecture principles and existing SaaS components rather than custom infrastructure.
+  </p>
+
+  <p>
+    The goal was not full automation.
+    The goal was to reduce operational friction and increase throughput while maintaining human oversight in all client-facing outputs.
+  </p>
+
+  <div class="graphic">
+    Architecture Diagram Placeholder
+  </div>
+
+  <h3>Context & Constraints</h3>
+
+  <p>
+    This system was developed inside an operational agency environment with the following constraints:
+  </p>
+
+  <ul>
+    <li>No dedicated engineering team at project start</li>
+    <li>Limited budget (primarily API usage and existing SaaS tooling)</li>
+    <li>Evolving requirements from non-technical stakeholders</li>
+    <li>Responsibility concentrated in a single primary builder</li>
+    <li>Strict requirement for human approval on all client-facing outputs</li>
+  </ul>
+
+  <p>
+    The system evolved incrementally rather than through formal architectural planning cycles.
+  </p>
+
+  <h3>System Architecture Overview</h3>
+
+  <p>
+    The system was designed as a modular, API-driven workflow layer integrated into an existing CMS/CRM environment (ExpressionEngine-based core).
+  </p>
+
+  <p>
+    Core principles:
+  </p>
+
+  <ul>
+    <li>Modular services instead of monolithic application design</li>
+    <li>Event-driven triggers for onboarding and content generation</li>
+    <li>Scheduled batch optimization cycles</li>
+    <li>Human-in-the-loop review gates</li>
+    <li>Interchangeable AI tooling layers to avoid vendor lock-in</li>
+  </ul>
+
+  <p>
+    The guiding idea was:
+  </p>
+
+  <div class="quote">
+    Replace rigid workflows with composable, event-driven systems connected through APIs.
+  </div>
+
+  <div class="graphic">
+    Workflow / Event Pipeline Placeholder
+  </div>
+
+  <h3>Event-Driven Client Onboarding</h3>
+
+  <p>
+    The onboarding system automated operational provisioning after a client signup/payment event.
+  </p>
+
+  <p>
+    The workflow included:
+  </p>
+
+  <ul>
+    <li>CRM record creation</li>
+    <li>Communication channel provisioning</li>
+    <li>Onboarding form generation</li>
+    <li>Website/content scraping</li>
+    <li>AI-assisted brand profile generation</li>
+    <li>Website and content draft generation</li>
+    <li>Human review before client delivery</li>
+  </ul>
+
+  <p>
+    A client could sign up late Sunday evening and have deliverables prepared for internal review Monday morning.
+  </p>
+
+  <h3>AI Content & Brand Generation Layer</h3>
+
+  <p>
+    Each client was associated with a structured content generation pipeline using historical brand data and scraped web content.
+  </p>
+
+  <p>
+    Outputs included:
+  </p>
+
+  <ul>
+    <li>Blog drafts</li>
+    <li>Social media posts</li>
+    <li>SEO-focused copy</li>
+    <li>Marketing suggestions</li>
+  </ul>
+
+  <p>
+    A higher-level optimization layer aggregated engagement data and periodically generated improvement recommendations across accounts.
+  </p>
+
+  <p>
+    All outputs required human review before publishing.
+  </p>
+
+  <div class="graphic">
+    Feedback Loop / Optimization Layer Placeholder
+  </div>
+
+  <h3>Content Feedback Loop</h3>
+
+  <p>
+    The system implemented recursive optimization loops using:
+  </p>
+
+  <ul>
+    <li>Engagement metrics</li>
+    <li>SEO performance</li>
+    <li>Content effectiveness</li>
+    <li>User acceptance/rejection patterns</li>
+    <li>Workflow analytics</li>
+  </ul>
+
+  <p>
+    Weekly optimization processes generated suggestions that flowed back into downstream workflows.
+  </p>
+
+  <p>
+    The goal was continuous operational refinement rather than static automation.
+  </p>
+
+  <h3>Sales Intelligence & Workflow Augmentation</h3>
+
+  <p>
+    The platform included AI-assisted sales tooling such as:
+  </p>
+
+  <ul>
+    <li>Sentiment analysis overlays</li>
+    <li>Contextual response suggestions</li>
+    <li>Lead enrichment workflows</li>
+    <li>Organizational memory tooling</li>
+    <li>Lead segmentation concepts</li>
+  </ul>
+
+  <p>
+    The system was designed to augment human operators rather than replace them.
+  </p>
+
+  <h3>Operational Outcomes</h3>
+
+  <p>
+    The system produced measurable operational improvements:
+  </p>
+
+  <div class="row g-4 metrics">
+
+    <div class="col-md-6 col-xl-3">
+      <div class="metric-card">
+
+        <div class="metric-number">
+          60 Days → 3 Weeks
         </div>
 
-        <div class="col-md-6 col-xl-3">
-          <div class="metric-card">
-            <div class="metric-number">
-              Human-Gated
-            </div>
-
-            <div class="metric-label">
-              Reliability-focused operational design
-            </div>
-          </div>
+        <div class="metric-label">
+          Onboarding time reduction
         </div>
 
       </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="metric-card">
+
+        <div class="metric-number">
+          &lt; 2 Hours
+        </div>
+
+        <div class="metric-label">
+          Support response times across ~90 clients
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="metric-card">
+
+        <div class="metric-number">
+          ~4x
+        </div>
+
+        <div class="metric-label">
+          Revenue growth within ~70 days following expanded marketing efforts
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="metric-card">
+
+        <div class="metric-number">
+          Human-Gated
+        </div>
+
+        <div class="metric-label">
+          Reliability-focused operational architecture
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <p>
+    These outcomes were achieved without proportional increases in headcount.
+  </p>
+
+  <h3>Constraints, Failures, and Limitations</h3>
+
+  <p>
+    Several limitations emerged during operation:
+  </p>
+
+  <ul>
+    <li>API-based architecture introduced scaling cost considerations</li>
+    <li>Scraped data occasionally introduced noisy training inputs</li>
+    <li>Dependency on external model providers</li>
+    <li>Increasing orchestration complexity as the system expanded</li>
+    <li>Human review required for all client-facing outputs</li>
+  </ul>
+
+  <p>
+    The system was intentionally not fully autonomous.
+    Reliability depended on human validation.
+  </p>
+
+  <h3>Key Learnings</h3>
+
+  <ul>
+    <li>Orchestration mattered more than individual models</li>
+    <li>Human-in-the-loop systems produced more reliable operational outcomes than unrestricted automation</li>
+    <li>Modularity allowed rapid adaptation as tooling evolved</li>
+    <li>Most bottlenecks were operational and workflow-related rather than purely generative</li>
+  </ul>
+
+  <h3>What I Would Build Differently Today</h3>
+
+  <p>
+    If rebuilt today, priorities would likely include:
+  </p>
+
+  <ul>
+    <li>Event-stream/webhook-native architecture</li>
+    <li>Stronger orchestration infrastructure</li>
+    <li>Improved operational memory/state systems</li>
+    <li>More scalable React-based interfaces</li>
+    <li>Reduced dependency on external APIs where appropriate</li>
+    <li>Stronger security and data isolation models</li>
+  </ul>
+
+  <h3>Final Reflection</h3>
+
+  <p>
+    This system was an early exploration of embedding AI directly into operational workflows inside a real business environment.
+  </p>
+
+  <p>
+    It was not a perfect implementation or a fully resourced engineering initiative.
+    It was an iterative production system built under real constraints.
+  </p>
+
+  <p>
+    The key insight was structural rather than purely technical:
+  </p>
+
+  <div class="quote">
+    Businesses begin behaving differently once AI becomes embedded into operational workflow layers rather than treated as an external tool.
+  </div>
+
+</section>
 
       <h3>Final Reflection</h3>
 
