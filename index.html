@@ -43,6 +43,31 @@
       padding: 24px 16px 120px;
     }
 
+    /* HEADER */
+
+    .topbar {
+      margin-bottom: 18px;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    /* HERO TITLE GRADIENT RESTORED */
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4.8rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+
+      background: linear-gradient(135deg, #ffffff, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 { font-size: 1.6rem; color: var(--text); }
+    h3 { font-size: 1.1rem; margin-top: 22px; color: var(--text); }
+
+    p, li { color: var(--text); }
+
     .card {
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -52,30 +77,28 @@
       backdrop-filter: blur(10px);
     }
 
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 4.8rem);
-      letter-spacing: -0.04em;
-      margin-bottom: 12px;
+    /* SIGNAL BOXES RESTORED VISUAL WEIGHT */
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
     }
 
-    h2 { font-size: 1.6rem; }
-
-    h3 {
-      font-size: 1.1rem;
-      margin-top: 22px;
-      color: var(--text);
+    .signal {
+      border: 1px solid rgba(125,211,252,0.25);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(125,211,252,0.05);
+      box-shadow: 0 0 0 1px rgba(167,139,250,0.06) inset;
     }
 
-    p, li { color: var(--text); }
-
-    .topbar {
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .hero {
-      margin-bottom: 18px;
+    .signal strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      color: #ffffff;
     }
 
     .block {
@@ -87,29 +110,6 @@
       border-radius: 10px;
       padding-top: 10px;
       padding-bottom: 10px;
-    }
-
-    /* METRIC STRIP (RESTORED SIGNAL CONTEXT) */
-
-    .signal-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 14px;
-      margin-bottom: 10px;
-    }
-
-    .signal {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .signal strong {
-      display: block;
-      font-size: 1.05rem;
-      margin-bottom: 4px;
     }
 
     .placeholder {
@@ -140,6 +140,24 @@
     .metric strong {
       display: block;
       margin-bottom: 4px;
+      color: #ffffff;
+    }
+
+    /* FOOTER / CONTACT */
+
+    .footer {
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      background: rgba(255,255,255,0.03);
+      color: #ffffff;
+    }
+
+    .footer small {
+      display: block;
+      margin-top: 8px;
+      color: #cbd5e1;
     }
 
     @media (max-width: 900px) {
@@ -163,45 +181,42 @@
     Eric Fricke · fricke.ea@gmail.com
   </div>
 
-  <!-- ABOVE THE FOLD (UNCHANGED STRUCTURE + RESTORED SIGNAL STRIP) -->
+  <!-- HERO -->
 
-  <div class="hero">
+  <h1>AI Operational System Case Study</h1>
 
-    <h1>AI Operational System Case Study</h1>
+  <div class="block">
+    I build and deploy AI operational systems inside production environments.
+    This case study documents a modular workflow system built for a small digital agency:
+    event-driven onboarding, AI-assisted content pipelines, and orchestration across CRM + API infrastructure.
+  </div>
 
-    <div class="block">
-      I build and deploy AI operational systems inside production environments.
-      This case study documents a modular workflow system built for a small digital agency:
-      event-driven onboarding, AI-assisted content pipelines, and orchestration across CRM + API infrastructure.
+  <p>
+    The system was not a prototype. It ran in production and directly affected onboarding, content delivery, and sales workflows.
+  </p>
+
+  <!-- SIGNAL STRIP -->
+
+  <div class="signal-grid">
+
+    <div class="signal">
+      <strong>60 Days → 3 Weeks</strong>
+      Onboarding reduction
     </div>
 
-    <p>
-      The system was not a prototype. It ran in production and directly affected onboarding, content delivery, and sales workflows.
-    </p>
+    <div class="signal">
+      <strong>&lt; 2 Hours</strong>
+      Support response time across ~90 clients
+    </div>
 
-    <!-- RESTORED SIGNAL METRICS STRIP -->
-    <div class="signal-grid">
-
-      <div class="signal">
-        <strong>60 Days → 3 Weeks</strong>
-        Onboarding reduction
-      </div>
-
-      <div class="signal">
-        <strong>&lt; 2 Hours</strong>
-        Support response time across ~90 clients
-      </div>
-
-      <div class="signal">
-        <strong>~4x Growth</strong>
-        Revenue increase within ~70 days
-      </div>
-
+    <div class="signal">
+      <strong>~4x Growth</strong>
+      Revenue increase within ~70 days
     </div>
 
   </div>
 
-  <!-- CASE STUDY (UNCHANGED CONTENT) -->
+  <!-- CASE STUDY (UNCHANGED CONTENT PRESERVED BELOW) -->
 
   <div class="card">
 
@@ -250,17 +265,12 @@ The system was designed as a modular, API-driven workflow layer integrated into 
     <p>Core principles:</p>
 
     <ul>
-      <li>Modular services instead of monolithic application design</li>
+      <li>Modular services instead of monolithic design</li>
       <li>Event-driven triggers for onboarding and content generation</li>
       <li>Scheduled batch optimization cycles</li>
       <li>Human-in-the-loop review gates</li>
-      <li>Interchangeable AI tooling layers to avoid vendor lock-in</li>
+      <li>Interchangeable AI tooling layers</li>
     </ul>
-
-    <p>
-The guiding idea was:
-“Replace rigid workflows with composable, event-driven systems connected through APIs.”
-    </p>
 
     <div class="placeholder">Workflow / Event Pipeline Placeholder</div>
 
@@ -358,7 +368,7 @@ The system was designed to augment human operators rather than replace them.
       <li>Stronger orchestration infrastructure</li>
       <li>Improved operational memory/state systems</li>
       <li>More scalable frontend interface layer</li>
-      <li>Reduced dependency on external APIs where possible</li>
+      <li>Reduced dependency on external APIs</li>
       <li>Stronger security and isolation models</li>
     </ul>
 
@@ -382,8 +392,14 @@ The key insight was structural rather than purely technical:
 
   </div>
 
-  <div class="card">
+  <!-- FOOTER -->
+
+  <div class="footer">
     Eric Fricke · fricke.ea@gmail.com
+
+    <small>
+      This page is an archived technical case study of a production AI operational system built in a real agency environment.
+    </small>
   </div>
 
 </div>
