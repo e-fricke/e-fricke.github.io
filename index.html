@@ -163,6 +163,99 @@
       color: #ffffff;
     }
 
+    /* SIGNAL GRID (ENHANCED VISUAL FIELD LAYER) */
+
+.signal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.signal {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid rgba(125,211,252,0.25);
+  border-radius: 16px;
+  padding: 16px;
+
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.015)
+    );
+
+  box-shadow:
+    0 0 0 1px rgba(167,139,250,0.06) inset,
+    0 10px 30px rgba(0,0,0,0.35);
+
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+/* SOFT GRADIENT FIELD (TIED TO TITLE COLORS) */
+.signal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(125,211,252,0.14),
+      transparent 55%),
+    radial-gradient(circle at bottom right,
+      rgba(167,139,250,0.12),
+      transparent 60%);
+
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* SUBTLE SHEEN PASS (VERY LOW INTENSITY) */
+.signal::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255,255,255,0.06),
+    transparent 60%
+  );
+
+  transform: translateX(-30%);
+  animation: sheen 10s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes sheen {
+  0%   { transform: translateX(-40%) rotate(0.001deg); opacity: 0; }
+  25%  { opacity: 0.25; }
+  50%  { transform: translateX(40%) rotate(0.001deg); opacity: 0; }
+  100% { transform: translateX(40%) rotate(0.001deg); opacity: 0; }
+}
+
+.signal:hover {
+  transform: translateY(-2px);
+  border-color: rgba(125,211,252,0.55);
+}
+
+.signal strong {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.signal {
+  color: rgba(234,240,248,0.92);
+}
+
     /* FOOTER */
 
     .footer {
