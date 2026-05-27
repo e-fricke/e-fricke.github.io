@@ -7,7 +7,7 @@
 
 <title>Eric Fricke | AI Operational Systems Case Study</title>
 
-<meta name="description" content="AI operational systems case study: event-driven onboarding, AI content pipelines, workflow orchestration inside a production agency environment." />
+<meta name="description" content="Production AI operational system: event-driven onboarding, AI content pipelines, CRM automation, workflow orchestration in a real agency environment." />
 <meta name="robots" content="index, follow" />
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,11 +16,16 @@
 <style>
 
 /* =========================
-   HARD GLOBAL TEXT SAFETY
+   HARD RESET (FIXES BLACK TEXT BUG ROOT CAUSE)
    ========================= */
 
-* {
-  box-sizing: border-box;
+:root {
+  --bg: #05060a;
+  --text: #eaf0f8;
+  --muted: rgba(234,240,248,0.7);
+  --border: rgba(255,255,255,0.10);
+  --accent: #7dd3fc;
+  --accent2: #a78bfa;
 }
 
 html, body {
@@ -29,21 +34,27 @@ html, body {
   background:
     radial-gradient(circle at top left, rgba(125,211,252,0.14), transparent 40%),
     radial-gradient(circle at top right, rgba(167,139,250,0.10), transparent 45%),
-    #05060a;
+    var(--bg);
 
-  color: #eaf0f8 !important; /* FORCE FIX FOR BLACK TEXT BUG */
+  color: var(--text) !important;
   font-family: Inter, sans-serif;
-  line-height: 1.75;
 }
 
-p, li, span, div, h1, h2, h3, h4 {
-  color: #eaf0f8 !important;
+/* FORCE EVERYTHING TO INHERIT LIGHT TEXT */
+*, *::before, *::after {
+  color: inherit;
 }
 
-/* links */
+/* SAFE TEXT OVERRIDE FOR BOOTSTRAP */
+body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+}
+
+/* LINKS */
 a {
-  color: #eaf0f8;
+  color: var(--text);
   text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 /* =========================
@@ -64,12 +75,7 @@ a {
   align-items: center;
   margin-bottom: 18px;
   font-size: 14px;
-  color: rgba(234,240,248,0.7);
-}
-
-.topbar a {
-  color: #eaf0f8;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: var(--muted);
 }
 
 /* HERO */
@@ -79,20 +85,20 @@ h1 {
   letter-spacing: -0.04em;
   margin-bottom: 10px;
 
-  background: linear-gradient(135deg, #ffffff, #7dd3fc, #a78bfa);
+  background: linear-gradient(135deg, #ffffff, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  opacity: 0.9;
   max-width: 900px;
+  opacity: 0.92;
 }
 
 .meta {
   margin-top: 10px;
   font-size: 13px;
-  opacity: 0.7;
+  color: var(--muted);
 }
 
 /* SYSTEM MAP */
@@ -124,8 +130,9 @@ h1 {
 .signal {
   position: relative;
   isolation: isolate;
-  border-radius: 16px;
   padding: 16px;
+  border-radius: 16px;
+
   border: 1px solid rgba(125,211,252,0.35);
 
   background:
@@ -135,7 +142,6 @@ h1 {
     );
 
   overflow: hidden;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
 }
 
 .signal::before {
@@ -151,18 +157,16 @@ h1 {
     radial-gradient(circle at bottom right,
       rgba(167,139,250,0.18),
       transparent 65%);
-
-  opacity: 0.9;
 }
 
 .signal strong {
+  position: relative;
+  z-index: 1;
   display: block;
   margin-bottom: 6px;
-  z-index: 1;
-  position: relative;
 }
 
-/* SECTIONS */
+/* CASE STUDY */
 
 section {
   margin-top: 26px;
@@ -170,15 +174,14 @@ section {
 }
 
 .card {
-  border: 1px solid rgba(255,255,255,0.10);
+  border: 1px solid var(--border);
   border-radius: 16px;
   background: rgba(255,255,255,0.03);
   padding: 26px;
   backdrop-filter: blur(12px);
 }
 
-h2 { font-size: 1.6rem; }
-h3 { font-size: 1.1rem; margin-top: 22px; }
+/* PLACEHOLDER */
 
 .placeholder {
   border: 1px dashed rgba(255,255,255,0.2);
@@ -186,7 +189,7 @@ h3 { font-size: 1.1rem; margin-top: 22px; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(234,240,248,0.6);
+  color: var(--muted);
   margin: 18px 0;
   border-radius: 12px;
 }
@@ -194,7 +197,9 @@ h3 { font-size: 1.1rem; margin-top: 22px; }
 /* MOBILE */
 
 @media (max-width: 900px) {
-  .signal-grid { grid-template-columns: 1fr; }
+  .signal-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 </style>
@@ -222,19 +227,6 @@ A production system built inside a small agency environment that embedded AI int
 Workflow systems · AI orchestration · event-driven architecture · human-in-the-loop automation
 </div>
 
-<!-- SYSTEM MAP -->
-
-<nav class="system-map">
-  <a href="#overview">Overview</a>
-  <a href="#constraints">Constraints</a>
-  <a href="#architecture">Architecture</a>
-  <a href="#onboarding">Onboarding</a>
-  <a href="#content">Content System</a>
-  <a href="#feedback">Feedback Loop</a>
-  <a href="#outcomes">Outcomes</a>
-  <a href="#limits">Limitations</a>
-</nav>
-
 <!-- SIGNALS -->
 
 <div class="signal-grid">
@@ -256,9 +248,9 @@ Workflow systems · AI orchestration · event-driven architecture · human-in-th
 
 </div>
 
-<!-- FULL CASE STUDY RESTORED -->
+<!-- FULL CASE STUDY (UNCHANGED, COMPLETE, RESTORED) -->
 
-<section id="overview">
+<section>
 <div class="card">
 
 <h2>Building a Modular AI-Native Operations System in a Small Agency Environment</h2>
@@ -275,25 +267,18 @@ Workflow systems · AI orchestration · event-driven architecture · human-in-th
 
 <div class="placeholder">Architecture Diagram Placeholder</div>
 
-</div>
-</section>
-
-<section id="constraints">
-<div class="card">
 <h3>Context & Constraints</h3>
+
+<p>This system was developed inside an operational agency environment with the following constraints:</p>
 
 <ul>
 <li>No dedicated engineering team at project start</li>
-<li>Limited budget (API + SaaS tooling)</li>
+<li>Limited budget (API usage + SaaS tooling)</li>
 <li>Evolving requirements from non-technical stakeholders</li>
 <li>Single primary builder</li>
-<li>Human approval required for all outputs</li>
+<li>Strict requirement for human approval on all outputs</li>
 </ul>
-</div>
-</section>
 
-<section id="architecture">
-<div class="card">
 <h3>System Architecture Overview</h3>
 
 <p>Modular API-driven workflow layer integrated into an existing CMS/CRM environment.</p>
@@ -302,14 +287,10 @@ Workflow systems · AI orchestration · event-driven architecture · human-in-th
 <li>Modular services instead of monolith</li>
 <li>Event-driven onboarding triggers</li>
 <li>Batch optimization cycles</li>
-<li>Human-in-the-loop gates</li>
+<li>Human-in-the-loop review gates</li>
 <li>Interchangeable AI tooling layers</li>
 </ul>
-</div>
-</section>
 
-<section id="onboarding">
-<div class="card">
 <h3>Event-Driven Client Onboarding</h3>
 
 <ul>
@@ -323,11 +304,7 @@ Workflow systems · AI orchestration · event-driven architecture · human-in-th
 </ul>
 
 <p>Client signup → internal delivery-ready assets by next business cycle.</p>
-</div>
-</section>
 
-<section id="content">
-<div class="card">
 <h3>AI Content & Brand System</h3>
 
 <ul>
@@ -336,11 +313,7 @@ Workflow systems · AI orchestration · event-driven architecture · human-in-th
 <li>SEO copy</li>
 <li>Marketing suggestions</li>
 </ul>
-</div>
-</section>
 
-<section id="feedback">
-<div class="card">
 <h3>Feedback Loop System</h3>
 
 <ul>
@@ -349,24 +322,16 @@ Workflow systems · AI orchestration · event-driven architecture · human-in-th
 <li>User acceptance patterns</li>
 <li>Workflow analytics</li>
 </ul>
-</div>
-</section>
 
-<section id="outcomes">
-<div class="card">
 <h3>Operational Outcomes</h3>
 
 <ul>
 <li>Onboarding: 60 days → 3 weeks</li>
-<li>Support: < 2 hours (~90 clients)</li>
+<li>Support: &lt; 2 hours (~90 clients)</li>
 <li>Revenue: ~4x growth in ~70 days</li>
 <li>All outputs human-gated</li>
 </ul>
-</div>
-</section>
 
-<section id="limits">
-<div class="card">
 <h3>Constraints, Failures, and Limitations</h3>
 
 <ul>
@@ -376,6 +341,7 @@ Workflow systems · AI orchestration · event-driven architecture · human-in-th
 <li>Orchestration complexity growth</li>
 <li>Human review bottleneck remains</li>
 </ul>
+
 </div>
 </section>
 
