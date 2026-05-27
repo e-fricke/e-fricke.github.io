@@ -54,9 +54,10 @@
       color: var(--muted);
     }
 
-    .topbar strong {
+    .topbar a {
       color: var(--text);
-      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
     /* HERO */
@@ -146,11 +147,14 @@
       margin-top: 14px;
     }
 
+    /* HARDENED METRIC VISIBILITY (FIX FOR “NOT STYLED” ISSUE) */
     .metric {
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      border: 1px solid rgba(125,211,252,0.25);
+      border-radius: 14px;
       padding: 14px;
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      box-shadow: 0 0 0 1px rgba(167,139,250,0.05) inset;
     }
 
     .metric strong {
@@ -192,14 +196,14 @@
 
 <div class="wrap">
 
-  <!-- TOP BAR -->
+  <!-- TOP BAR (FIXED MAILTO) -->
 
   <div class="topbar">
     <strong>Eric Fricke</strong>
-    <span>fricke.ea@gmail.com</span>
+    <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
   </div>
 
-  <!-- HERO (RESTRUCTURED FOR HIGH-SIGNAL SCANNING) -->
+  <!-- HERO -->
 
   <div class="hero">
 
@@ -400,10 +404,10 @@ The key insight was structural rather than purely technical:
 
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (MAILTO FIX APPLIED) -->
 
   <div class="footer">
-    Eric Fricke · fricke.ea@gmail.com
+    Eric Fricke · <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
 
     <small>
       This page is an archived technical case study of a production AI operational system built in a real agency environment.
