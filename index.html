@@ -43,27 +43,68 @@
       padding: 24px 16px 120px;
     }
 
+    /* TOP BAR */
+
     .topbar {
-      margin-bottom: 18px;
-      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
       font-size: 14px;
-      opacity: 0.9;
+      color: var(--muted);
     }
+
+    .topbar strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* HERO */
 
     h1 {
       font-size: clamp(2.2rem, 6vw, 4.8rem);
       letter-spacing: -0.04em;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
 
       background: linear-gradient(135deg, #ffffff, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    h2 { font-size: 1.6rem; color: var(--text); }
-    h3 { font-size: 1.1rem; margin-top: 22px; color: var(--text); }
+    .hero {
+      margin-bottom: 26px;
+    }
 
-    p, li { color: var(--text); }
+    .subtitle {
+      color: var(--text);
+      font-size: 1.05rem;
+      max-width: 900px;
+      opacity: 0.92;
+    }
+
+    .meta-line {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .chip-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* CASE STUDY */
 
     .card {
       border: 1px solid var(--border);
@@ -74,46 +115,17 @@
       backdrop-filter: blur(12px);
     }
 
+    h2 { font-size: 1.6rem; color: var(--text); }
+    h3 { font-size: 1.1rem; margin-top: 22px; color: var(--text); }
+
+    p, li { color: var(--text); }
+
     .block {
       border-left: 2px solid var(--accent);
       padding: 12px 14px;
       margin: 16px 0;
       background: rgba(125,211,252,0.05);
       border-radius: 10px;
-    }
-
-    /* FIXED SIGNAL BOXES — REAL VISUAL HIERARCHY */
-
-    .signal-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .signal {
-      border: 1px solid rgba(125,211,252,0.35);
-      border-radius: 16px;
-      padding: 16px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      box-shadow:
-        0 0 0 1px rgba(167,139,250,0.08) inset,
-        0 8px 24px rgba(0,0,0,0.35);
-      transition: transform 0.15s ease, border-color 0.15s ease;
-    }
-
-    .signal:hover {
-      transform: translateY(-2px);
-      border-color: rgba(125,211,252,0.6);
-    }
-
-    .signal strong {
-      display: block;
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-      color: #ffffff;
-      letter-spacing: -0.02em;
     }
 
     .placeholder {
@@ -147,6 +159,8 @@
       color: #ffffff;
     }
 
+    /* FOOTER */
+
     .footer {
       margin-top: 18px;
       border: 1px solid var(--border);
@@ -164,7 +178,6 @@
 
     @media (max-width: 900px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
-      .signal-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 600px) {
@@ -179,40 +192,39 @@
 
 <div class="wrap">
 
+  <!-- TOP BAR -->
+
   <div class="topbar">
-    Eric Fricke · fricke.ea@gmail.com
+    <strong>Eric Fricke</strong>
+    <span>fricke.ea@gmail.com</span>
   </div>
 
-  <h1>AI Operational System Case Study</h1>
+  <!-- HERO (RESTRUCTURED FOR HIGH-SIGNAL SCANNING) -->
 
-  <div class="block">
-    I build and deploy AI operational systems inside production environments.
-    This case study documents a modular workflow system built for a small digital agency:
-    event-driven onboarding, AI-assisted content pipelines, and orchestration across CRM + API infrastructure.
-  </div>
+  <div class="hero">
 
-  <p>
-    The system was not a prototype. It ran in production and directly affected onboarding, content delivery, and sales workflows.
-  </p>
+    <h1>AI Operational Systems Case Study</h1>
 
-  <div class="signal-grid">
-
-    <div class="signal">
-      <strong>60 Days → 3 Weeks</strong>
-      Onboarding reduction
+    <div class="subtitle">
+      A production system built inside a small agency environment that embedded AI into onboarding,
+      content generation, sales augmentation, and workflow orchestration through a modular, API-driven architecture.
     </div>
 
-    <div class="signal">
-      <strong>&lt; 2 Hours</strong>
-      Support response time across ~90 clients
+    <div class="meta-line">
+      Focus: workflow systems · AI orchestration · CRM + API integration · human-in-the-loop automation
     </div>
 
-    <div class="signal">
-      <strong>~4x Growth</strong>
-      Revenue increase within ~70 days
+    <div class="chip-row">
+      <div class="chip">Event-driven architecture</div>
+      <div class="chip">AI-assisted operations</div>
+      <div class="chip">CRM integration</div>
+      <div class="chip">Workflow orchestration</div>
+      <div class="chip">Production deployment</div>
     </div>
 
   </div>
+
+  <!-- CASE STUDY (UNCHANGED CONTENT) -->
 
   <div class="card">
 
@@ -387,6 +399,8 @@ The key insight was structural rather than purely technical:
     </p>
 
   </div>
+
+  <!-- FOOTER -->
 
   <div class="footer">
     Eric Fricke · fricke.ea@gmail.com
