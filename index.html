@@ -5,230 +5,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Eric Fricke | AI Systems Architecture & Operational Automation</title>
+  <title>Eric Fricke | AI Operational Systems Case Study</title>
 
-  <meta name="description" content="Eric Fricke builds AI-native operational systems focused on workflow orchestration, modular automation architecture, applied AI infrastructure, and real-world production systems." />
-  <meta name="keywords" content="Eric Fricke, AI systems architect, operational automation, workflow orchestration, AI-native systems, applied AI, skunkworks engineering, automation architecture, AI infrastructure, event-driven systems" />
-  <meta name="author" content="Eric Fricke" />
+  <meta name="description" content="AI operational systems case study: event-driven onboarding, AI content pipelines, workflow orchestration inside a production agency environment." />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="Eric Fricke | AI Systems Architecture & Operational Automation" />
-  <meta property="og:description" content="AI-native operational systems, workflow orchestration, production automation architecture." />
-  <meta property="og:type" content="website" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
 
     :root {
-      --bg: #06070a;
-      --text: #f3f5f7;
-      --muted: #9ca3af;
+      --bg: #05060a;
+      --text: #eaf0f8;
+      --muted: #9aa4b2;
       --border: rgba(255,255,255,0.08);
       --accent: #7dd3fc;
-      --radius: 22px;
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
-
-    * {
-      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       font-family: Inter, sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(125,211,252,0.12), transparent 35%),
-        radial-gradient(circle at top right, rgba(139,92,246,0.10), transparent 40%),
-        #05060a;
       line-height: 1.75;
-      overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); }
+    a { color: inherit; }
 
     .wrap {
-      max-width: 1150px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 24px 16px 120px;
     }
 
-    .glass {
-      background: rgba(255,255,255,0.03);
+    .card {
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-    }
-
-    /* TOP BAR */
-
-    .topbar {
-      padding: 16px 18px;
-      margin-bottom: 50px;
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 10px 0 60px;
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 7vw, 5.8rem);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      margin-bottom: 18px;
-    }
-
-    .grad {
-      background: linear-gradient(135deg, #fff, #7dd3fc, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .sub {
-      max-width: 900px;
-      font-size: 1.15rem;
-      color: #cbd5e1;
-    }
-
-    .btnrow {
-      margin-top: 28px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btnx {
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      transition: 0.2s;
-    }
-
-    .btnx:hover {
-      border-color: rgba(125,211,252,0.5);
-      transform: translateY(-2px);
-    }
-
-    /* CARDS */
-
-    section.card {
-      padding: 34px;
-      margin-top: 26px;
-    }
-
-    h2 {
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      margin-bottom: 18px;
-      letter-spacing: -0.03em;
-    }
-
-    h3 {
-      margin-top: 34px;
-      margin-bottom: 12px;
-      font-size: 1.2rem;
-      color: #e5e7eb;
-    }
-
-    p {
-      color: #d6dde6;
-      margin-bottom: 14px;
-    }
-
-    ul {
-      color: #d6dde6;
-    }
-
-    .quote {
-      margin: 20px 0;
-      padding: 18px;
-      border-left: 2px solid var(--accent);
-      background: rgba(125,211,252,0.06);
-      border-radius: 10px;
-    }
-
-    .placeholder {
-      height: 220px;
       border-radius: 16px;
-      border: 1px dashed rgba(255,255,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #7c8592;
-      margin: 20px 0;
-      text-align: center;
-      padding: 12px;
-    }
-
-    /* METRICS */
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      background: rgba(255,255,255,0.03);
+      padding: 26px;
       margin-top: 18px;
     }
 
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4.8rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    h2 { font-size: 1.6rem; }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 22px;
+      color: var(--text);
+    }
+
+    p, li {
+      color: var(--text);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .topbar {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      margin-bottom: 22px;
+    }
+
+    .block {
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+      margin: 16px 0;
+      color: var(--text);
+    }
+
+    .placeholder {
+      border: 1px dashed rgba(255,255,255,0.2);
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      margin: 18px 0;
+      border-radius: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
     .metric {
-      padding: 16px;
-      border-radius: 14px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 14px;
+      background: rgba(255,255,255,0.02);
     }
 
     .metric strong {
       display: block;
-      font-size: 1.2rem;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+      color: var(--text);
     }
-
-    footer {
-      margin-top: 60px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    /* MOBILE FIXES */
 
     @media (max-width: 900px) {
-      section.card { padding: 24px; }
-      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
-
-      h1 {
-        line-height: 1.05;
-      }
-
-      .btnrow {
-        flex-direction: column;
-      }
-
-      .btnx {
-        width: 100%;
-        text-align: center;
-      }
-
-      .metrics {
-        grid-template-columns: 1fr;
-      }
-
-      section.card {
-        padding: 20px;
-      }
+      .grid { grid-template-columns: 1fr; }
     }
 
   </style>
@@ -239,185 +133,212 @@
 
 <div class="wrap">
 
-  <div class="topbar glass">
-    Eric Fricke · <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
+  <!-- ABOVE THE FOLD (RESTORED + HN READY) -->
+
+  <div class="topbar">
+    Eric Fricke · fricke.ea@gmail.com
   </div>
 
-  <!-- HERO -->
+  <div class="hero">
 
-  <section class="hero">
+    <h1>AI Operational System Case Study</h1>
 
-    <h1>
-      Building <span class="grad">AI-native operational systems</span>
-      in production environments
-    </h1>
-
-    <div class="sub">
-      I design modular workflow systems that embed AI directly into operational infrastructure.
-      My focus is orchestration, automation architecture, and human-in-the-loop systems built for real businesses.
+    <div class="block">
+      I build and deploy AI operational systems inside production environments.
+      This case study documents a modular workflow system built for a small digital agency:
+      event-driven onboarding, AI-assisted content pipelines, and orchestration across CRM + API infrastructure.
     </div>
 
-    <div class="btnrow">
-      <a class="btnx" href="#case">View Case Study</a>
-      <a class="btnx" href="mailto:fricke.ea@gmail.com">Contact</a>
-    </div>
-
-  </section>
-
-  <!-- WHY -->
-
-  <section class="card glass">
-
-    <h2>Why This Matters</h2>
-
-    <p>
-      Most AI narratives focus on models and tools.
-      This work focuses on operational systems.
+    <p class="muted">
+      The system was not a prototype. It ran in production and directly affected onboarding, content delivery, and sales workflows.
     </p>
 
-    <div class="quote">
-      What happens when AI is embedded directly into workflow layers instead of sitting on top of them?
-    </div>
+  </div>
 
-    <p>
-      The answer is not full automation. It is adaptive operational structure.
-    </p>
+  <!-- CASE STUDY (UNCHANGED CONTENT) -->
 
-  </section>
-
-  <!-- CASE STUDY FULL ORIGINAL CONTENT -->
-
-  <section id="case" class="card glass">
+  <div class="card">
 
     <h2>Building a Modular AI-Native Operations System in a Small Agency Environment</h2>
 
     <h3>Overview</h3>
 
     <p>
-      A small digital marketing agency was facing a familiar scaling problem: increasing client demand,
-      slow onboarding cycles, inconsistent content production, and limited operational capacity without
-      proportional increases in headcount.
+A small digital marketing agency was facing a familiar scaling problem: increasing client demand, slow onboarding cycles, inconsistent content production, and limited operational capacity without proportional increases in headcount.
     </p>
 
     <p>
-      To address this, I designed and implemented an internal system that combined existing CRM infrastructure
-      with API-based AI tools to automate and standardize core parts of client onboarding, content generation,
-      and internal sales workflows.
+To address this, I designed and implemented an internal system that combined existing CRM infrastructure with API-based AI tools to automate and standardize core parts of client onboarding, content generation, and internal sales workflows.
     </p>
 
     <p>
-      The system was built iteratively inside a real production environment, primarily by a single developer,
-      using modular architecture principles and existing SaaS components rather than custom infrastructure.
+The system was built iteratively inside a real production environment, primarily by a single developer, using modular architecture principles and existing SaaS components rather than custom infrastructure.
     </p>
 
     <p>
-      The goal was not full automation. The goal was to reduce operational friction and increase throughput
-      while maintaining human oversight in all client-facing outputs.
+The goal was not full automation. The goal was to reduce operational friction and increase throughput while maintaining human oversight in all client-facing outputs.
     </p>
 
     <div class="placeholder">Architecture Diagram Placeholder</div>
 
     <h3>Context & Constraints</h3>
 
+    <p>This system was developed inside an operational agency environment with the following constraints:</p>
+
     <ul>
       <li>No dedicated engineering team at project start</li>
-      <li>Limited budget (API usage + existing SaaS tooling)</li>
+      <li>Limited budget (primarily API usage and existing SaaS tooling)</li>
       <li>Evolving requirements from non-technical stakeholders</li>
-      <li>Single primary builder responsibility</li>
-      <li>Human approval required for all outputs</li>
+      <li>Responsibility concentrated in a single primary builder</li>
+      <li>Strict requirement for human approval on all client-facing outputs</li>
     </ul>
 
-    <p>The system evolved incrementally inside production constraints.</p>
+    <p>The system evolved incrementally rather than through formal architectural planning cycles.</p>
 
     <h3>System Architecture Overview</h3>
 
     <p>
-      The system was a modular API-driven workflow layer integrated into an existing CMS/CRM environment.
+The system was designed as a modular, API-driven workflow layer integrated into an existing CMS/CRM environment (ExpressionEngine-based core).
     </p>
 
+    <p>Core principles:</p>
+
     <ul>
-      <li>Modular services instead of monolithic architecture</li>
-      <li>Event-driven triggers</li>
-      <li>Batch optimization cycles</li>
-      <li>Human-in-the-loop gates</li>
-      <li>Interchangeable AI tooling layers</li>
+      <li>Modular services instead of monolithic application design</li>
+      <li>Event-driven triggers for onboarding and content generation</li>
+      <li>Scheduled batch optimization cycles</li>
+      <li>Human-in-the-loop review gates</li>
+      <li>Interchangeable AI tooling layers to avoid vendor lock-in</li>
     </ul>
 
-    <div class="quote">
-      Replace rigid workflows with composable event-driven systems.
-    </div>
+    <p>
+The guiding idea was:
+“Replace rigid workflows with composable, event-driven systems connected through APIs.”
+    </p>
 
-    <div class="placeholder">Workflow Pipeline Placeholder</div>
+    <div class="placeholder">Workflow / Event Pipeline Placeholder</div>
 
     <h3>Event-Driven Client Onboarding</h3>
 
     <ul>
       <li>CRM record creation</li>
-      <li>Communication provisioning</li>
+      <li>Communication channel provisioning</li>
       <li>Onboarding form generation</li>
-      <li>Content scraping</li>
-      <li>Brand profile generation</li>
-      <li>Draft content generation</li>
-      <li>Human review gate</li>
+      <li>Website/content scraping</li>
+      <li>AI-assisted brand profile generation</li>
+      <li>Website and content draft generation</li>
+      <li>Human review before client delivery</li>
     </ul>
 
     <p>
-      Clients could sign up late Sunday and have internal-ready deliverables by Monday morning.
+A client could sign up late Sunday evening and have deliverables prepared for internal review Monday morning.
     </p>
 
-    <h3>AI Content & Brand Layer</h3>
+    <h3>AI Content & Brand Generation Layer</h3>
 
     <ul>
       <li>Blog drafts</li>
-      <li>Social posts</li>
-      <li>SEO copy</li>
+      <li>Social media posts</li>
+      <li>SEO-focused copy</li>
       <li>Marketing suggestions</li>
     </ul>
 
     <p>
-      Outputs fed into a higher-level optimization layer that improved performance over time.
+A higher-level optimization layer aggregated engagement data and periodically generated improvement recommendations across accounts.
     </p>
 
-    <div class="placeholder">Feedback Loop Placeholder</div>
+    <h3>Content Feedback Loop</h3>
+
+    <ul>
+      <li>Engagement metrics</li>
+      <li>SEO performance</li>
+      <li>Content effectiveness</li>
+      <li>User acceptance/rejection patterns</li>
+      <li>Workflow analytics</li>
+    </ul>
+
+    <p>
+Weekly optimization processes generated suggestions that flowed back into downstream workflows.
+    </p>
+
+    <h3>Sales Intelligence & Workflow Augmentation</h3>
+
+    <ul>
+      <li>Sentiment analysis overlays</li>
+      <li>Contextual response suggestions</li>
+      <li>Lead enrichment workflows</li>
+      <li>Organizational memory tooling</li>
+      <li>Lead segmentation concepts</li>
+    </ul>
+
+    <p>
+The system was designed to augment human operators rather than replace them.
+    </p>
 
     <h3>Operational Outcomes</h3>
 
-    <div class="metrics">
+    <div class="grid">
 
-      <div class="metric"><strong>60 → 21 Days</strong>Onboarding reduction</div>
-      <div class="metric"><strong>&lt; 2 Hours</strong>Support response time</div>
-      <div class="metric"><strong>~4x</strong>Revenue growth</div>
-      <div class="metric"><strong>Human-Gated</strong>All outputs reviewed</div>
+      <div class="metric"><strong>60 Days → 3 Weeks</strong>Onboarding time reduction</div>
+      <div class="metric"><strong>&lt; 2 Hours</strong>Support response times across ~90 clients</div>
+      <div class="metric"><strong>~4x</strong>Revenue growth within ~70 days</div>
+      <div class="metric"><strong>Human-Gated</strong>All outputs required approval layer</div>
 
     </div>
 
-    <h3>Final Insight</h3>
-
-    <p>
-      The system demonstrates a structural shift: embedding intelligence into workflows changes how the business behaves.
-    </p>
-
-  </section>
-
-  <!-- INTERESTS -->
-
-  <section class="card glass">
-
-    <h2>Focus Areas</h2>
+    <h3>Constraints, Failures, and Limitations</h3>
 
     <ul>
-      <li>AI-native systems architecture</li>
-      <li>Operational automation</li>
-      <li>Workflow orchestration</li>
-      <li>Skunkworks engineering</li>
-      <li>Applied AI infrastructure</li>
+      <li>API-based architecture introduced scaling cost considerations</li>
+      <li>Scraped data occasionally introduced noisy inputs</li>
+      <li>Dependency on external model providers</li>
+      <li>Increasing orchestration complexity over time</li>
+      <li>Human review required for all client-facing outputs</li>
     </ul>
 
-  </section>
+    <h3>Key Learnings</h3>
 
-  <footer>
-    Eric Fricke · <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
-  </footer>
+    <ul>
+      <li>Orchestration mattered more than individual models</li>
+      <li>Human-in-the-loop systems produced more reliable outcomes than full automation</li>
+      <li>Modularity allowed rapid adaptation as tooling evolved</li>
+      <li>Most bottlenecks were operational rather than generative</li>
+    </ul>
+
+    <h3>What I Would Build Differently Today</h3>
+
+    <ul>
+      <li>Event-stream/webhook-native architecture</li>
+      <li>Stronger orchestration infrastructure</li>
+      <li>Improved operational memory/state systems</li>
+      <li>More scalable frontend interface layer</li>
+      <li>Reduced dependency on external APIs where possible</li>
+      <li>Stronger security and isolation models</li>
+    </ul>
+
+    <h3>Final Reflection</h3>
+
+    <p>
+This system was an early exploration of embedding AI directly into operational workflows inside a real business environment.
+    </p>
+
+    <p>
+It was not a polished enterprise system. It was an iterative production system built under real constraints.
+    </p>
+
+    <p>
+The key insight was structural rather than purely technical:
+    </p>
+
+    <p>
+“Businesses begin behaving differently once AI becomes embedded into operational workflow layers rather than treated as an external tool.”
+    </p>
+
+  </div>
+
+  <div class="card muted">
+    Eric Fricke · fricke.ea@gmail.com
+  </div>
 
 </div>
 
