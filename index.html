@@ -19,7 +19,7 @@
       --bg: #05060a;
       --text: #eaf0f8;
       --muted: #9aa4b2;
-      --border: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.10);
       --accent: #7dd3fc;
       --accent2: #a78bfa;
     }
@@ -43,15 +43,12 @@
       padding: 24px 16px 120px;
     }
 
-    /* HEADER */
-
     .topbar {
       margin-bottom: 18px;
       color: var(--text);
       font-size: 14px;
+      opacity: 0.9;
     }
-
-    /* HERO TITLE GRADIENT RESTORED */
 
     h1 {
       font-size: clamp(2.2rem, 6vw, 4.8rem);
@@ -74,42 +71,49 @@
       background: rgba(255,255,255,0.03);
       padding: 26px;
       margin-top: 18px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
 
-    /* SIGNAL BOXES RESTORED VISUAL WEIGHT */
+    .block {
+      border-left: 2px solid var(--accent);
+      padding: 12px 14px;
+      margin: 16px 0;
+      background: rgba(125,211,252,0.05);
+      border-radius: 10px;
+    }
+
+    /* FIXED SIGNAL BOXES — REAL VISUAL HIERARCHY */
 
     .signal-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 16px;
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .signal {
-      border: 1px solid rgba(125,211,252,0.25);
-      border-radius: 14px;
-      padding: 14px;
-      background: rgba(125,211,252,0.05);
-      box-shadow: 0 0 0 1px rgba(167,139,250,0.06) inset;
+      border: 1px solid rgba(125,211,252,0.35);
+      border-radius: 16px;
+      padding: 16px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      box-shadow:
+        0 0 0 1px rgba(167,139,250,0.08) inset,
+        0 8px 24px rgba(0,0,0,0.35);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .signal:hover {
+      transform: translateY(-2px);
+      border-color: rgba(125,211,252,0.6);
     }
 
     .signal strong {
       display: block;
       font-size: 1.05rem;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       color: #ffffff;
-    }
-
-    .block {
-      border-left: 2px solid var(--accent);
-      padding-left: 14px;
-      margin: 16px 0;
-      color: var(--text);
-      background: rgba(125,211,252,0.04);
-      border-radius: 10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      letter-spacing: -0.02em;
     }
 
     .placeholder {
@@ -142,8 +146,6 @@
       margin-bottom: 4px;
       color: #ffffff;
     }
-
-    /* FOOTER / CONTACT */
 
     .footer {
       margin-top: 18px;
@@ -181,8 +183,6 @@
     Eric Fricke · fricke.ea@gmail.com
   </div>
 
-  <!-- HERO -->
-
   <h1>AI Operational System Case Study</h1>
 
   <div class="block">
@@ -194,8 +194,6 @@
   <p>
     The system was not a prototype. It ran in production and directly affected onboarding, content delivery, and sales workflows.
   </p>
-
-  <!-- SIGNAL STRIP -->
 
   <div class="signal-grid">
 
@@ -215,8 +213,6 @@
     </div>
 
   </div>
-
-  <!-- CASE STUDY (UNCHANGED CONTENT PRESERVED BELOW) -->
 
   <div class="card">
 
@@ -392,13 +388,12 @@ The key insight was structural rather than purely technical:
 
   </div>
 
-  <!-- FOOTER -->
-
   <div class="footer">
     Eric Fricke · fricke.ea@gmail.com
 
     <small>
       This page is an archived technical case study of a production AI operational system built in a real agency environment.
+      It is intended as a public record of the system architecture and outcomes.
     </small>
   </div>
 
