@@ -107,7 +107,6 @@ h1 {
   overflow: hidden;
   padding: 20px;
   border-radius: 16px;
-
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
   border: 1px solid rgba(109,211,255,0.18);
 }
@@ -116,7 +115,6 @@ h1 {
   content: "";
   position: absolute;
   inset: 0;
-
   background:
     radial-gradient(circle at top left, rgba(109,211,255,0.16), transparent 55%),
     radial-gradient(circle at bottom right, rgba(157,123,255,0.12), transparent 60%);
@@ -197,30 +195,16 @@ h3 { margin-top: 36px; font-size: 1.2rem; }
 p, li { color: var(--text); }
 ul { padding-left: 22px; }
 
-/* DIAGRAM PLACEHOLDER */
+/* DIAGRAMS */
 
 .diagram-placeholder {
   margin: 28px 0;
   padding: 42px 24px;
   border-radius: 18px;
-
   background: linear-gradient(180deg, rgba(109,211,255,0.05), rgba(157,123,255,0.04));
   border: 1px dashed rgba(109,211,255,0.30);
-
   color: var(--muted);
   text-align: center;
-}
-
-/* BUTTON */
-
-.hn-btn {
-  margin-top: 18px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  color: var(--text);
-  cursor: pointer;
 }
 
 /* MODAL */
@@ -229,8 +213,10 @@ ul { padding-left: 22px; }
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
 }
+
+.modal.show { display: block; }
 
 .modal-content {
   background: #fff;
@@ -242,9 +228,15 @@ ul { padding-left: 22px; }
   border-radius: 12px;
 }
 
-.modal h2 { font-size: 18px; }
-
-.modal.show { display: block; }
+.hn-btn {
+  margin-top: 18px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  cursor: pointer;
+}
 
 </style>
 
@@ -261,8 +253,7 @@ ul { padding-left: 22px; }
 <h1>AI Operational Systems Case Study (2023)</h1>
 
 <p class="lead">
-A production AI-native operational system built inside a small agency environment.
-It began as a CRM wiki extension concept and evolved into a modular workflow architecture for onboarding, content generation, and CRM-driven automation.
+A production AI-native operational system that began as a CRM wiki extension concept and evolved into a modular workflow architecture for onboarding, content generation, and CRM-driven automation inside a live agency environment.
 </p>
 
 <div class="contact">
@@ -276,18 +267,18 @@ Key Points (HN Version)
 <div class="signals">
 
 <div class="signal-card">
-<strong>90 Minutes → System Brief</strong>
-<span>Initial concept explosion window</span>
+<strong>60 Days → 3 Weeks</strong>
+<span>Onboarding compression</span>
 </div>
 
 <div class="signal-card">
-<strong>Event-Driven System</strong>
-<span>CRM → full operational automation layer</span>
+<strong>&lt; 2 Hours</strong>
+<span>Support response across ~90 clients</span>
 </div>
 
 <div class="signal-card">
-<strong>Recursive AI Loop</strong>
-<span>Master + client model feedback cycle</span>
+<strong>~4x Growth</strong>
+<span>Revenue impact in ~70 days</span>
 </div>
 
 </div>
@@ -298,219 +289,367 @@ Key Points (HN Version)
 <div class="dossier-nav-title">System Map</div>
 <div class="dossier-links">
 <a href="#overview">Overview</a>
-<a href="#architecture">Architecture</a>
-<a href="#onboarding">Onboarding</a>
-<a href="#content">Content</a>
-<a href="#loop">Feedback Loop</a>
-<a href="#sales">Sales</a>
+<a href="#operational">Operational Context</a>
+<a href="#architecture">Core Architecture</a>
+<a href="#provisioning">Client Provisioning</a>
+<a href="#content">AI Content System</a>
+<a href="#loop">Supervisory Loop</a>
+<a href="#web">Web Generation</a>
+<a href="#sales">Sales System</a>
+<a href="#human">Human Review</a>
 <a href="#outcomes">Outcomes</a>
+<a href="#limits">Limitations</a>
+<a href="#retrospective">Retrospective</a>
 </div>
 </nav>
 
-<!-- OVERVIEW (REVISED CONTENT) -->
+<!-- ========================= -->
+<!-- FULL CASE STUDY CONTENT -->
+<!-- ========================= -->
+
 <section class="dossier-section" id="overview">
 <div class="section-card">
+<div class="section-label">Overview</div>
 
-<div class="section-label">Origin & System Formation</div>
-
-<h2>CRM Wiki → AI Operational System</h2>
+<h2>Building an AI-Native Operational System Inside a Small Agency Environment (2023)</h2>
 
 <p>
-The system began in 2023 during a transition period inside a small agency that had just lost its sales director.
-The initial intent was not automation but augmentation: a CRM extension that would act as a lightweight wiki layer for junior sales staff.
+In mid-2023, a small digital marketing agency lost a sales director and needed a way to support a young and relatively inexperienced sales staff with better operational context and workflow consistency.
 </p>
 
 <p>
-During a ~90 minute drafting session with leadership, the idea expanded rapidly from “context tooling” into a full operational redesign.
+The original proposal was modest: extend the agency’s existing CRM with a wiki-like internal knowledge layer containing lead history, previous objections, prior interactions, and organizational context.
 </p>
 
 <p>
-As the system brief evolved, the architecture shifted toward:
+The initial project brief was drafted in approximately 90 minutes following a strategy discussion with ownership.
+</p>
+
+<p>
+During the drafting process, the scope expanded rapidly as additional operational possibilities became obvious:
 </p>
 
 <ul>
-<li>event-driven CRM workflows instead of static records</li>
-<li>automated onboarding triggered by payment events</li>
-<li>AI-assisted content generation tied to client state</li>
-<li>recurring optimization loops across accounts</li>
+<li>lead scoring</li>
+<li>sentiment analysis</li>
+<li>workflow automation</li>
+<li>AI-assisted content generation</li>
+<li>automated onboarding</li>
+<li>recursive optimization systems</li>
+<li>operational augmentation for both sales and marketing</li>
 </ul>
 
 <p>
-At this stage, the system stopped being a tool and became an operational layer.
+What began as an internal CRM extension evolved into a broader operational architecture built around workflow orchestration and AI-assisted execution.
+</p>
+
+<p>
+The resulting system was implemented inside a live production environment using an ExpressionEngine module architecture, API-based AI systems, scheduled workflows, and human review pipelines.
+</p>
+
+<p>
+The goal was not full autonomy.
+</p>
+
+<p>
+The goal was to reduce operational friction, compress onboarding latency, increase throughput, and restructure the business around AI-assisted operational workflows.
 </p>
 
 <div class="diagram-placeholder">
-[Placeholder: Evolution Flow — CRM Tool → Workflow Layer → AI Operations System]
+[CRM → Event Layer → AI Systems → Human Review → Delivery]
 </div>
 
 </div>
 </section>
 
-<!-- ARCHITECTURE -->
+<section class="dossier-section" id="operational">
+<div class="section-card">
+<div class="section-label">Operational Context</div>
+
+<h2>Business Model Shift</h2>
+
+<p>
+The agency operated using a traditional high-friction delivery model:
+</p>
+
+<ul>
+<li>large upfront website projects</li>
+<li>slow onboarding cycles</li>
+<li>repeated approval loops</li>
+<li>manual content production</li>
+<li>fragmented tooling</li>
+</ul>
+
+<p>
+The system enabled a transition toward a subscription-based delivery model (~$299/month).
+</p>
+
+<p>
+Clients could onboard asynchronously and enter production workflows rapidly after payment.
+</p>
+
+</div>
+</section>
+
 <section class="dossier-section" id="architecture">
 <div class="section-card">
+<div class="section-label">Core Architecture</div>
 
-<div class="section-label">Architecture</div>
-
-<h2>Modular AI Workflow System</h2>
+<h2>Modular Workflow Orchestration Layer</h2>
 
 <ul>
 <li>ExpressionEngine module as orchestration layer</li>
-<li>API-driven AI integration (OpenAI endpoints)</li>
-<li>event-driven provisioning system</li>
-<li>cron-based master scheduling loop</li>
-<li>modular provider abstraction for model swapping</li>
+<li>API-based AI integration (OpenAI endpoints)</li>
+<li>event-driven system triggers</li>
+<li>cron-based workflow scheduling</li>
+<li>provider abstraction for model flexibility</li>
 </ul>
 
 <p>
-The system was intentionally modular to anticipate rapid evolution of underlying AI models.
+The architecture was designed to remain flexible as AI models evolved.
 </p>
 
 </div>
 </section>
 
-<!-- ONBOARDING -->
-<section class="dossier-section" id="onboarding">
+<section class="dossier-section" id="provisioning">
 <div class="section-card">
+<div class="section-label">Client Provisioning</div>
 
-<div class="section-label">Onboarding System</div>
-
-<h2>Event-Driven Client Provisioning</h2>
+<h2>Event-Driven Onboarding System</h2>
 
 <ul>
-<li>payment event triggers full system setup</li>
-<li>Slack + CRM + workspace provisioning</li>
-<li>automated onboarding form generation</li>
-<li>site scraping + historical data capture</li>
-<li>brand modeling via AI ingestion</li>
+<li>payment triggers full provisioning pipeline</li>
+<li>CRM record creation</li>
+<li>Slack workspace provisioning</li>
+<li>workflow initialization</li>
+<li>onboarding form generation</li>
 </ul>
 
 <p>
-A client could sign up at night and receive structured outputs the next business cycle.
+Post-onboarding:
 </p>
 
-<div class="diagram-placeholder">
-[Placeholder: Onboarding Event Flow Diagram]
-</div>
+<ul>
+<li>website scraping via Python</li>
+<li>structured training/context generation</li>
+<li>AI model adaptation via API workflows</li>
+</ul>
+
+<p>
+Clients could theoretically onboard at night and have structured outputs ready the next cycle.
+</p>
 
 </div>
 </section>
 
-<!-- CONTENT -->
 <section class="dossier-section" id="content">
 <div class="section-card">
+<div class="section-label">AI Content System</div>
 
-<div class="section-label">Content System</div>
-
-<h2>AI Content + Brand Modeling Layer</h2>
+<h2>Client-Specific Generation Layer</h2>
 
 <ul>
-<li>blogs, social, SEO content generation</li>
-<li>client-specific tone modeling</li>
-<li>historical content ingestion (up to 2 years)</li>
-<li>~23 prompt orchestration chain</li>
+<li>blog generation</li>
+<li>SEO content</li>
+<li>social media content</li>
+<li>marketing recommendations</li>
 </ul>
 
 <p>
-Generated outputs were routed through human review before publishing.
+System inputs included:
 </p>
 
-<div class="diagram-placeholder">
-[Placeholder: Content Pipeline Architecture]
-</div>
+<ul>
+<li>scraped website history</li>
+<li>prior generated content</li>
+<li>brand tone profiles</li>
+<li>engagement history</li>
+</ul>
+
+<p>
+~23 coordinated prompts formed the marketing automation pipeline.
+</p>
 
 </div>
 </section>
 
-<!-- LOOP -->
 <section class="dossier-section" id="loop">
 <div class="section-card">
+<div class="section-label">Supervisory Loop</div>
 
-<div class="section-label">Feedback System</div>
-
-<h2>Master → Client Recursive Loop</h2>
+<h2>Recursive Optimization System</h2>
 
 <ul>
 <li>engagement + analytics ingestion</li>
 <li>master model evaluation cycle</li>
 <li>weekly cron-based optimization</li>
-<li>human edits as structured feedback signals</li>
-<li>accept/reject training loop</li>
+<li>human edit feedback signals</li>
+<li>accept/reject structured responses</li>
 </ul>
 
 <p>
-This created a bidirectional learning system between production outputs and supervisory evaluation.
+This created a recursive improvement loop between system output and human validation.
 </p>
-
-<div class="diagram-placeholder">
-[Placeholder: Recursive Feedback Loop Diagram]
-</div>
 
 </div>
 </section>
 
-<!-- SALES -->
-<section class="dossier-section" id="sales">
+<section class="dossier-section" id="web">
 <div class="section-card">
+<div class="section-label">Website Generation</div>
 
-<div class="section-label">Sales Layer</div>
-
-<h2>CRM Augmentation System</h2>
+<h2>Automated Web Build Pipeline</h2>
 
 <ul>
-<li>lead enrichment and scoring</li>
-<li>sentiment analysis overlays</li>
-<li>automated follow-up generation</li>
-<li>pipeline state augmentation</li>
+<li>form-driven prompt generation</li>
+<li>WordPress automation tooling</li>
+<li>structured site generation workflows</li>
+</ul>
+
+<p>
+Designed to reduce repetitive production work for simple website deployments.
+</p>
+
+</div>
+</section>
+
+<section class="dossier-section" id="sales">
+<div class="section-card">
+<div class="section-label">Sales System</div>
+
+<h2>CRM Augmentation Layer</h2>
+
+<ul>
+<li>lead enrichment</li>
+<li>lead scoring</li>
+<li>sentiment overlays</li>
+<li>automated follow-ups</li>
+<li>organizational memory system</li>
 </ul>
 
 </div>
 </section>
 
-<!-- OUTCOMES -->
+<section class="dossier-section" id="human">
+<div class="section-card">
+<div class="section-label">Human Review</div>
+
+<h2>Human-in-the-Loop Architecture</h2>
+
+<p>
+Human review was intentionally retained across all client-facing outputs.
+</p>
+
+<p>
+This separated:
+</p>
+
+<ul>
+<li>system capability</li>
+<li>system trust</li>
+</ul>
+
+<p>
+Full automation was possible in parts of the system but not deployed due to quality and relationship constraints.
+</p>
+
+</div>
+</section>
+
 <section class="dossier-section" id="outcomes">
 <div class="section-card">
-
 <div class="section-label">Outcomes</div>
 
 <h2>Operational Impact</h2>
 
 <ul>
-<li>~60 day onboarding → ~3 weeks</li>
-<li>&lt;2 hour response time across ~90 clients</li>
+<li>~60 days → ~3 weeks onboarding</li>
+<li>&lt;2 hour response across ~90 clients</li>
 <li>~4x revenue growth in ~70 days</li>
-<li>reduced headcount scaling pressure</li>
+<li>reduced operational load without headcount increase</li>
 </ul>
+
+</div>
+</section>
+
+<section class="dossier-section" id="limits">
+<div class="section-card">
+<div class="section-label">Limitations</div>
+
+<h2>Operational Constraints</h2>
+
+<ul>
+<li>API cost scaling</li>
+<li>workflow synchronization complexity</li>
+<li>prompt orchestration overhead</li>
+<li>provider dependency</li>
+<li>increasing system complexity over time</li>
+</ul>
+
+</div>
+</section>
+
+<section class="dossier-section" id="retrospective">
+<div class="section-card">
+<div class="section-label">Retrospective</div>
+
+<h2>System-Level Insight</h2>
+
+<p>
+The most important outcome was not automation itself, but structural change.
+</p>
+
+<p>
+Embedding AI into workflow architecture altered:
+</p>
+
+<ul>
+<li>onboarding behavior</li>
+<li>pricing structure</li>
+<li>delivery timelines</li>
+<li>coordination overhead</li>
+<li>organizational throughput</li>
+</ul>
+
+<p>
+The system demonstrated that AI has the greatest impact when it becomes part of operational structure rather than isolated tooling.
+</p>
 
 </div>
 </section>
 
 </div>
 
-<!-- MODAL -->
+<!-- HN MODAL -->
 <div id="modal" class="modal" onclick="this.classList.remove('show')">
 <div class="modal-content" onclick="event.stopPropagation()">
 
-<h2>HN Key Points (Compressed View)</h2>
-
-<p>
-CRM → event-driven AI workflow system (2023, agency environment).
-</p>
+<h2>HN Key Points</h2>
 
 <ul>
-<li>payment-triggered onboarding automation</li>
+<li>CRM → AI workflow system (2023)</li>
+<li>event-driven onboarding + provisioning</li>
 <li>AI content generation tied to client state</li>
-<li>master model supervises client models</li>
-<li>cron-based recursive optimization loop</li>
-<li>human review as stability layer</li>
+<li>master/client recursive model loop</li>
+<li>cron-based optimization cycle</li>
+<li>human review as stabilizer</li>
 </ul>
 
 <p>
-Outcome: faster onboarding, higher throughput, scalable AI-assisted operations without proportional headcount growth.
+Outcome: compressed onboarding, higher throughput, AI-embedded operations layer.
 </p>
 
 </div>
 </div>
+
+<script>
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.getElementById('modal').classList.remove('show');
+  }
+});
+</script>
 
 </body>
 </html>
