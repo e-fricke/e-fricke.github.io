@@ -1,348 +1,516 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>AI Operational Systems Case Study (2023) | Eric Fricke</title>
+<title>AI Operational Systems Case Study (2023) | CRM-to-AI Workflow Architecture | Eric Fricke</title>
 
-<meta name="description" content="Production AI-native operational system built in 2023 inside a small agency environment: onboarding automation, AI content pipelines, recursive optimization loops." />
-<meta name="author" content="Eric Fricke" />
+<meta name="description" content="2023 production AI operational system evolving from CRM wiki tooling into modular AI workflow architecture. Event-driven onboarding, AI content pipelines, and operational automation in a live agency environment." />
+
 <meta name="robots" content="index, follow" />
+<meta name="author" content="Eric Fricke" />
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta name="keywords" content="
+AI systems architecture,
+workflow automation,
+CRM augmentation,
+event-driven systems,
+applied AI engineering,
+skunkworks systems,
+business automation,
+AI content pipelines,
+operational AI systems,
+founder engineering tools,
+production AI workflows 2023
+" />
 
 <style>
+
+:root {
+  --bg: #06070b;
+  --surface: #0e1117;
+  --surface-2: #121722;
+  --border: rgba(255,255,255,0.08);
+  --text: #e8edf5;
+  --muted: #9ca8ba;
+  --blue: #6dd3ff;
+  --purple: #9d7bff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-  background: #070A12;
-  color: #E8EDF5;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at top left, rgba(109,211,255,0.12), transparent 35%),
+    radial-gradient(circle at top right, rgba(157,123,255,0.10), transparent 40%),
+    var(--bg);
+
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.75;
 }
 
-.navbar {
-  background: rgba(10,12,20,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+a { color: var(--blue); text-decoration: none; }
+a:hover { opacity: 0.85; }
+
+.container {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 32px 20px 120px;
 }
 
-.hero {
-  padding: 90px 0 40px;
-  background: radial-gradient(circle at top, rgba(109,211,255,0.18), transparent 60%);
+/* HERO */
+
+.hero { padding: 28px 0 12px; }
+
+.eyebrow {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  margin-bottom: 18px;
 }
 
-.hero h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.02;
+  margin: 0 0 20px;
+
+  background: linear-gradient(135deg,#ffffff 0%,var(--blue) 50%,var(--purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.hero p {
-  color: #AAB4C3;
-  max-width: 850px;
+.lead { max-width: 860px; color: var(--text); font-size: 1.08rem; }
+
+.contact { margin-top: 18px; color: var(--muted); font-size: 14px; }
+
+/* SIGNALS */
+
+.signals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
 }
 
-.section {
-  padding: 60px 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
+.signal-card {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 16px;
+
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(109,211,255,0.18);
 }
 
-.card-dossier {
+.signal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at top left, rgba(109,211,255,0.16), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(157,123,255,0.12), transparent 60%);
+}
+
+.signal-card strong,
+.signal-card span {
+  position: relative;
+  z-index: 2;
+}
+
+.signal-card strong {
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.signal-card span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* NAV */
+
+.dossier-nav {
+  margin-top: 42px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+}
+
+.dossier-nav-title {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.dossier-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dossier-links a {
+  padding: 8px 14px;
+  border-radius: 999px;
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
-  padding: 26px;
+  color: var(--text);
+  font-size: 14px;
 }
 
-a { color: #6DD3FF; }
+/* SECTIONS */
 
-.btn-signal {
-  background: linear-gradient(90deg, #6DD3FF, #8A7CFF);
-  border: none;
-  color: #0B0F1A;
-  font-weight: 600;
+.dossier-section { margin-top: 56px; }
+
+.section-card {
+  padding: 34px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border: 1px solid var(--border);
 }
 
-.btn-signal:hover { opacity: 0.9; }
+.section-label {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 14px;
+}
 
-/* MODAL HN */
-.modal-content { border-radius: 0; }
+h2 { font-size: 2rem; margin-top: 0; }
+h3 { margin-top: 36px; font-size: 1.2rem; }
 
-.hn-body {
+p, li { color: var(--text); }
+ul { padding-left: 22px; }
+
+/* DIAGRAM PLACEHOLDER */
+
+.diagram-placeholder {
+  margin: 28px 0;
+  padding: 42px 24px;
+  border-radius: 18px;
+
+  background: linear-gradient(180deg, rgba(109,211,255,0.05), rgba(157,123,255,0.04));
+  border: 1px dashed rgba(109,211,255,0.30);
+
+  color: var(--muted);
+  text-align: center;
+}
+
+/* BUTTON */
+
+.hn-btn {
+  margin-top: 18px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
   background: #fff;
   color: #111;
-  padding: 24px;
-  font-family: system-ui;
-  line-height: 1.6;
+  width: 90%;
+  max-width: 900px;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
 }
 
-.hn-body h1 {
-  font-size: 20px;
-}
+.modal h2 { font-size: 18px; }
 
-.hn-body h2 {
-  font-size: 16px;
-  margin-top: 20px;
-}
+.modal.show { display: block; }
 
-.hn-meta {
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 10px;
-}
 </style>
+
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="navbar navbar-dark fixed-top">
-  <div class="container">
-    <span class="navbar-brand">System Dossier</span>
-    <span class="small">
-      Eric Fricke · <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
-    </span>
-  </div>
-</nav>
+<div class="container">
 
-<!-- HERO -->
 <header class="hero">
-  <div class="container">
-    <h1>AI Operational Systems Case Study (2023)</h1>
-    <p>
-      Production AI-native workflow system built inside a small agency environment.
-      Event-driven onboarding, AI content generation, supervisory optimization loops, and CRM orchestration.
-    </p>
 
-    <button class="btn btn-signal mt-3" data-bs-toggle="modal" data-bs-target="#hnModal">
-      Key Points (HN Version)
-    </button>
-  </div>
+<div class="eyebrow">SYSTEM DOSSIER · PUBLIC TECHNICAL ARCHIVE</div>
+
+<h1>AI Operational Systems Case Study (2023)</h1>
+
+<p class="lead">
+A production AI-native operational system built inside a small agency environment.
+It began as a CRM wiki extension concept and evolved into a modular workflow architecture for onboarding, content generation, and CRM-driven automation.
+</p>
+
+<div class="contact">
+Eric Fricke · <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
+</div>
+
+<button class="hn-btn" onclick="document.getElementById('modal').classList.add('show')">
+Key Points (HN Version)
+</button>
+
+<div class="signals">
+
+<div class="signal-card">
+<strong>90 Minutes → System Brief</strong>
+<span>Initial concept explosion window</span>
+</div>
+
+<div class="signal-card">
+<strong>Event-Driven System</strong>
+<span>CRM → full operational automation layer</span>
+</div>
+
+<div class="signal-card">
+<strong>Recursive AI Loop</strong>
+<span>Master + client model feedback cycle</span>
+</div>
+
+</div>
+
 </header>
 
-<main class="container">
+<nav class="dossier-nav">
+<div class="dossier-nav-title">System Map</div>
+<div class="dossier-links">
+<a href="#overview">Overview</a>
+<a href="#architecture">Architecture</a>
+<a href="#onboarding">Onboarding</a>
+<a href="#content">Content</a>
+<a href="#loop">Feedback Loop</a>
+<a href="#sales">Sales</a>
+<a href="#outcomes">Outcomes</a>
+</div>
+</nav>
 
-<!-- OVERVIEW -->
-<section class="section" id="overview">
-<div class="card-dossier">
+<!-- OVERVIEW (REVISED CONTENT) -->
+<section class="dossier-section" id="overview">
+<div class="section-card">
 
-<h2>Overview</h2>
+<div class="section-label">Origin & System Formation</div>
+
+<h2>CRM Wiki → AI Operational System</h2>
 
 <p>
-In mid-2023, a small digital marketing agency lost a sales director and needed a way to support a young and relatively inexperienced sales staff with better operational context and workflow consistency.
+The system began in 2023 during a transition period inside a small agency that had just lost its sales director.
+The initial intent was not automation but augmentation: a CRM extension that would act as a lightweight wiki layer for junior sales staff.
 </p>
 
 <p>
-The original proposal was modest: extend the agency’s existing CRM with a wiki-like internal knowledge layer containing lead history, objections, prior interactions, and organizational context.
+During a ~90 minute drafting session with leadership, the idea expanded rapidly from “context tooling” into a full operational redesign.
 </p>
 
 <p>
-The initial project brief was drafted in approximately 90 minutes during a strategy discussion with ownership.
-</p>
-
-<p>
-During drafting, scope expanded rapidly into:
+As the system brief evolved, the architecture shifted toward:
 </p>
 
 <ul>
-<li>lead scoring</li>
-<li>sentiment analysis</li>
-<li>workflow automation</li>
-<li>AI-assisted content generation</li>
-<li>automated onboarding</li>
-<li>recursive optimization systems</li>
-<li>operational augmentation for sales + marketing</li>
+<li>event-driven CRM workflows instead of static records</li>
+<li>automated onboarding triggered by payment events</li>
+<li>AI-assisted content generation tied to client state</li>
+<li>recurring optimization loops across accounts</li>
 </ul>
 
 <p>
-The system evolved from CRM extension → operational orchestration layer.
+At this stage, the system stopped being a tool and became an operational layer.
 </p>
+
+<div class="diagram-placeholder">
+[Placeholder: Evolution Flow — CRM Tool → Workflow Layer → AI Operations System]
+</div>
 
 </div>
 </section>
 
 <!-- ARCHITECTURE -->
-<section class="section" id="architecture">
-<div class="card-dossier">
+<section class="dossier-section" id="architecture">
+<div class="section-card">
 
-<h2>System Architecture</h2>
+<div class="section-label">Architecture</div>
+
+<h2>Modular AI Workflow System</h2>
 
 <ul>
 <li>ExpressionEngine module as orchestration layer</li>
-<li>API-based AI workflows</li>
+<li>API-driven AI integration (OpenAI endpoints)</li>
 <li>event-driven provisioning system</li>
-<li>cron-based supervisory cycle</li>
-<li>human-in-the-loop validation</li>
-<li>modular provider abstraction for model swap flexibility</li>
+<li>cron-based master scheduling loop</li>
+<li>modular provider abstraction for model swapping</li>
 </ul>
+
+<p>
+The system was intentionally modular to anticipate rapid evolution of underlying AI models.
+</p>
 
 </div>
 </section>
 
 <!-- ONBOARDING -->
-<section class="section" id="onboarding">
-<div class="card-dossier">
+<section class="dossier-section" id="onboarding">
+<div class="section-card">
 
-<h2>Event-Driven Onboarding</h2>
+<div class="section-label">Onboarding System</div>
 
-<p>Payment event triggered full system provisioning:</p>
-
-<ul>
-<li>CRM record creation</li>
-<li>Slack channel provisioning</li>
-<li>workflow initialization</li>
-<li>onboarding form generation</li>
-</ul>
-
-<p>After onboarding submission:</p>
+<h2>Event-Driven Client Provisioning</h2>
 
 <ul>
-<li>website scraping (Python)</li>
-<li>structured training/context creation</li>
-<li>AI model adaptation via OpenAI API</li>
-<li>initial content generation pipeline</li>
+<li>payment event triggers full system setup</li>
+<li>Slack + CRM + workspace provisioning</li>
+<li>automated onboarding form generation</li>
+<li>site scraping + historical data capture</li>
+<li>brand modeling via AI ingestion</li>
 </ul>
 
 <p>
-Target behavior: signup at night → production-ready outputs by next morning.
+A client could sign up at night and receive structured outputs the next business cycle.
 </p>
+
+<div class="diagram-placeholder">
+[Placeholder: Onboarding Event Flow Diagram]
+</div>
 
 </div>
 </section>
 
 <!-- CONTENT -->
-<section class="section" id="content">
-<div class="card-dossier">
+<section class="dossier-section" id="content">
+<div class="section-card">
 
-<h2>AI Content System</h2>
+<div class="section-label">Content System</div>
+
+<h2>AI Content + Brand Modeling Layer</h2>
 
 <ul>
-<li>blogs, SEO, social content generation</li>
-<li>client-specific contextual modeling</li>
-<li>historical ingestion of brand data</li>
-<li>~23-prompt orchestration chain</li>
+<li>blogs, social, SEO content generation</li>
+<li>client-specific tone modeling</li>
+<li>historical content ingestion (up to 2 years)</li>
+<li>~23 prompt orchestration chain</li>
 </ul>
+
+<p>
+Generated outputs were routed through human review before publishing.
+</p>
+
+<div class="diagram-placeholder">
+[Placeholder: Content Pipeline Architecture]
+</div>
 
 </div>
 </section>
 
-<!-- FEEDBACK LOOP -->
-<section class="section" id="loop">
-<div class="card-dossier">
+<!-- LOOP -->
+<section class="dossier-section" id="loop">
+<div class="section-card">
 
-<h2>Supervisory Optimization Loop</h2>
+<div class="section-label">Feedback System</div>
+
+<h2>Master → Client Recursive Loop</h2>
 
 <ul>
-<li>aggregated engagement + analytics</li>
-<li>weekly optimization cycle (cron)</li>
-<li>recommendations per client system</li>
-<li>human edits as feedback signals</li>
-<li>accept/reject structured responses</li>
+<li>engagement + analytics ingestion</li>
+<li>master model evaluation cycle</li>
+<li>weekly cron-based optimization</li>
+<li>human edits as structured feedback signals</li>
+<li>accept/reject training loop</li>
 </ul>
 
 <p>
-This created a recursive improvement loop between generation and human correction.
+This created a bidirectional learning system between production outputs and supervisory evaluation.
 </p>
+
+<div class="diagram-placeholder">
+[Placeholder: Recursive Feedback Loop Diagram]
+</div>
 
 </div>
 </section>
 
 <!-- SALES -->
-<section class="section" id="sales">
-<div class="card-dossier">
+<section class="dossier-section" id="sales">
+<div class="section-card">
 
-<h2>Sales System</h2>
+<div class="section-label">Sales Layer</div>
+
+<h2>CRM Augmentation System</h2>
 
 <ul>
-<li>lead enrichment</li>
-<li>lead scoring</li>
-<li>sentiment overlays</li>
-<li>automated follow-ups</li>
-<li>CRM augmentation layer</li>
+<li>lead enrichment and scoring</li>
+<li>sentiment analysis overlays</li>
+<li>automated follow-up generation</li>
+<li>pipeline state augmentation</li>
 </ul>
 
 </div>
 </section>
 
 <!-- OUTCOMES -->
-<section class="section" id="outcomes">
-<div class="card-dossier">
+<section class="dossier-section" id="outcomes">
+<div class="section-card">
 
-<h2>Operational Outcomes</h2>
+<div class="section-label">Outcomes</div>
+
+<h2>Operational Impact</h2>
 
 <ul>
-<li>~60 days → ~3 weeks onboarding</li>
+<li>~60 day onboarding → ~3 weeks</li>
 <li>&lt;2 hour response time across ~90 clients</li>
 <li>~4x revenue growth in ~70 days</li>
-<li>reduced operational load without headcount growth</li>
+<li>reduced headcount scaling pressure</li>
 </ul>
 
 </div>
 </section>
 
-</main>
-
-<!-- FOOTER -->
-<footer class="container py-5">
-  <div class="text-center small">
-    Eric Fricke · AI systems · workflow architecture · 2023 deployment
-  </div>
-</footer>
-
-<!-- HN MODAL -->
-<div class="modal fade" id="hnModal" tabindex="-1">
-<div class="modal-dialog modal-fullscreen">
-<div class="modal-content">
-
-<div class="hn-body">
-
-<div class="hn-meta">
-HN Technical Readout Version · compressed system view
 </div>
 
-<h1>AI Operational System in Production (2023)</h1>
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="this.classList.remove('show')">
+<div class="modal-content" onclick="event.stopPropagation()">
+
+<h2>HN Key Points (Compressed View)</h2>
 
 <p>
-Production AI workflow system built inside a small agency after sales director loss.
-Evolved from CRM augmentation into orchestration layer.
+CRM → event-driven AI workflow system (2023, agency environment).
 </p>
 
-<h2>System</h2>
 <ul>
-<li>event-driven onboarding</li>
-<li>AI API generation layer</li>
-<li>cron supervisory loop</li>
-<li>human-in-loop validation</li>
+<li>payment-triggered onboarding automation</li>
+<li>AI content generation tied to client state</li>
+<li>master model supervises client models</li>
+<li>cron-based recursive optimization loop</li>
+<li>human review as stability layer</li>
 </ul>
 
-<h2>Onboarding</h2>
-<ul>
-<li>payment → provisioning</li>
-<li>Slack + CRM creation</li>
-<li>website scraping → structured data</li>
-<li>AI brand modeling</li>
-</ul>
-
-<h2>Feedback Loop</h2>
-<ul>
-<li>analytics aggregation</li>
-<li>weekly optimization cycle</li>
-<li>human edits feed system</li>
-</ul>
-
-<h2>Outcomes</h2>
-<ul>
-<li>~60 days → ~3 weeks onboarding</li>
-<li>&lt;2h support across ~90 clients</li>
-<li>~4x revenue growth in ~70 days</li>
-</ul>
-
-</div>
+<p>
+Outcome: faster onboarding, higher throughput, scalable AI-assisted operations without proportional headcount growth.
+</p>
 
 </div>
 </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
