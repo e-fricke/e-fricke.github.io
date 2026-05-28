@@ -4,326 +4,293 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>AI Operational Systems Case Study (2023) | Eric Fricke</title>
+<title>AI Operational System in Production (2023) | Eric Fricke</title>
 
-<meta name="description" content="2023 AI-native operational system built inside a small agency environment. Event-driven onboarding, AI content pipelines, recursive workflow architecture." />
+<meta name="description" content="Production AI workflow system built in 2023 inside a small agency: event-driven onboarding, AI content generation, supervisory optimization loops, and CRM orchestration." />
 <meta name="author" content="Eric Fricke" />
 <meta name="robots" content="index, follow" />
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <style>
 body {
-  background: #070A12;
-  color: #E8EDF5;
+  margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  line-height: 1.7;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.6;
 }
 
-a { color: #6DD3FF; text-decoration: none; }
-a:hover { opacity: 0.8; }
-
-.navbar {
-  background: rgba(10,12,20,0.9);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-.hero {
-  padding: 80px 0 40px;
-  background: radial-gradient(circle at top, rgba(109,211,255,0.15), transparent 60%);
+header {
+  margin-bottom: 40px;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-.hero p {
-  color: #AAB4C3;
-  max-width: 800px;
+h2 {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+p {
+  margin: 12px 0;
+}
+
+ul {
+  margin: 10px 0 10px 20px;
+}
+
+.meta {
+  color: #444;
+  font-size: 14px;
 }
 
 .section {
-  padding: 60px 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
 }
 
-.card-dossier {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 24px;
-  white-space: pre-wrap;
+code, pre {
+  background: #f6f6f6;
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
-footer {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 40px 0;
-  color: #9AA6B2;
+.footer {
+  margin-top: 60px;
+  font-size: 13px;
+  color: #666;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-dark fixed-top">
-  <div class="container">
-    <span class="navbar-brand">System Dossier</span>
-    <span class="text-light small">
-      Eric Fricke · <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
-    </span>
-  </div>
-</nav>
+<div class="container">
 
-<header class="hero">
-  <div class="container">
-    <h1>AI Operational Systems Case Study (2023)</h1>
-    <p>
-      A production AI-native operational system built inside a small agency environment using event-driven workflows,
-      modular CRM architecture, and recursive AI-assisted optimization systems.
-    </p>
-  </div>
+<header>
+<h1>AI Operational System in Production (2023)</h1>
+<div class="meta">Eric Fricke · Production system built inside a small agency · Mid 2023</div>
+<div class="meta">Contact: fricke.ea@gmail.com</div>
 </header>
 
-<main class="container">
-
-<div class="section">
-<div class="card-dossier">
-
-Building an AI-Native Operational System Inside a Small Agency Environment (2023)
-
-Overview
-
-In mid-2023, a small digital marketing agency lost a sales director and needed a way to support a young and relatively inexperienced sales staff with better operational context and workflow consistency.
-
-The original proposal was modest: extend the agency’s existing CRM with a wiki-like internal knowledge layer containing lead history, previous objections, prior interactions, and organizational context.
-
-The initial project brief was drafted in approximately 90 minutes following a strategy discussion with ownership.
-
-During the drafting process, the scope expanded rapidly as additional operational possibilities became obvious:
-
-- lead scoring
-- sentiment analysis
-- workflow automation
-- AI-assisted content generation
-- automated onboarding
-- recursive optimization systems
-- operational augmentation for both sales and marketing
-
-What began as an internal CRM extension evolved into a broader operational architecture built around workflow orchestration and AI-assisted execution.
-
-The resulting system was implemented inside a live production environment using an ExpressionEngine module architecture, API-based AI systems, scheduled workflows, and human review pipelines.
-
-The goal was not full autonomy.
-
-The goal was to reduce operational friction, compress onboarding latency, increase throughput, and restructure the business around AI-assisted operational workflows.
-
----
-
-Operational Context
-
-The agency operated using a traditional high-friction delivery model:
-
-- large upfront website projects
-- slow onboarding cycles
-- repeated approval loops
-- manual content production
-- fragmented operational tooling
-
-The system architecture enabled a transition toward a subscription-oriented delivery model.
-
-Clients could subscribe directly through the company website for approximately $299/month, complete onboarding asynchronously, and move into production workflows almost immediately after payment.
-
-After two years, clients owned their website code and assets.
-
-This represented a significant operational shift away from traditional agency pacing constraints and toward higher-throughput workflow-driven service delivery.
-
----
-
-Core Architectural Philosophy
-
-The system was intentionally designed as a modular orchestration layer rather than a monolithic application.
-
-It was immediately clear in 2023 that underlying AI providers, APIs, and model capabilities were evolving rapidly. Tight coupling between workflows and specific vendors would have created operational fragility and slowed iteration.
-
-The ExpressionEngine module therefore operated primarily as:
-
-- an orchestration layer
-- a workflow/state manager
-- an API broker
-- an automation trigger system
-
-Most operational components communicated through API abstractions built into the module architecture.
-
-This allowed:
-- workflow stages to evolve independently
-- prompts to be modified incrementally
-- providers to be swapped when necessary
-- operational tooling to expand without requiring full system rewrites
-
-The system ultimately evolved into two interconnected operational layers:
-
-1. Sales augmentation systems
-2. Marketing / website production systems
-
----
-
-Event-Driven Client Provisioning
-
-The onboarding workflow was initiated automatically following successful payment confirmation through the company website.
-
-A successful payment event triggered a provisioning pipeline inside the ExpressionEngine module layer.
-
-This process automatically generated:
-
-- CRM records
-- workflow entries
-- onboarding states
-- Slack channels
-- communication flows
-- internal operational tracking objects
-
-Clients immediately received:
-- Slack invitations
-- onboarding instructions
-- intake forms
-- asset upload requests
-
-The onboarding forms collected:
-- existing website information
-- brand preferences
-- desired changes
-- uploaded logos/assets
-- operational goals
-- stylistic references
-
-Following onboarding submission, a Python-based scraping system collected content from the client’s existing website and transformed it into structured training/context data.
-
-This data was then transmitted through OpenAI fine-tuning endpoints and related API workflows in order to generate client-specific content behavior and contextual output consistency.
-
-The result was a workflow where a client could theoretically subscribe late Sunday evening and have onboarding artifacts, generated content, and internal production preparation ready for review by Monday morning.
-
----
-
-AI Content Generation System
-
-Each client operated inside an individualized content generation workflow.
-
-Generated outputs included:
-- blog articles
-- social media posts
-- SEO-oriented content
-- marketing suggestions
-- website copy
-
-The content system incorporated:
-- scraped historical website data
-- prior generated content
-- brand tone information
-- operational preferences
-- historical engagement behavior
-
-The architecture gradually evolved away from isolated prompt execution and toward persistent contextual generation.
-
-Generated assets and historical outputs were persisted through internal client-linked storage tables to maintain continuity and reduce repetitive output generation.
-
-Content repetition detection was also implemented and flagged for human review when necessary.
-
-The marketing automation pipeline eventually contained approximately 23 coordinated prompts across multiple workflow stages.
-
----
-
-Supervisory Optimization Layer
-
-One of the more experimental system behaviors involved a higher-level supervisory model layer operating above individual client systems.
-
-This supervisory layer aggregated:
-- engagement metrics
-- analytics data
-- campaign performance
-- human edit behavior
-- acceptance/rejection patterns
-
-A scheduled weekly optimization cycle generated recommendations for individual client systems based on observed performance data.
-
-Individual client workflows then returned structured responses indicating:
-- which recommendations were accepted
-- which were rejected
-- which outputs required human modification
-
-Human edits effectively became operational feedback signals inside future workflow behavior.
-
-The goal was not autonomous decision-making.
-
-The goal was iterative operational refinement through recursive feedback loops.
-
----
-
-Website Generation Workflows
-
-On the web development side, the system also explored AI-assisted website generation pipelines.
-
-For simpler websites, onboarding form data could be transformed into structured prompts that interfaced with external vendor tooling capable of generating WordPress websites programmatically.
-
----
-
-Sales Augmentation Systems
-
-The sales side of the platform evolved into a separate operational layer focused on workflow augmentation rather than replacement.
-
-Features included:
-- lead enrichment
-- lead scoring
-- sentiment analysis overlays
-- automated follow-up systems
-- organizational memory tooling
-- contextual sales assistance
-
----
-
-Human Review Philosophy
-
-Although many workflows were technically capable of operating with minimal oversight, the system intentionally maintained human review requirements across all client-facing outputs.
-
-The architecture separated operational capability from operational trust.
-
----
-
-Operational Outcomes
-
-- onboarding compressed from ~60 days to ~3 weeks
-- support response under 2 hours across ~90 clients
-- ~4x revenue growth within ~70 days
-- reduced operational load without proportional headcount increase
-
----
-
-Limitations & Operational Challenges
-
-- increasing API costs
-- synchronization complexity
-- prompt coordination overhead
-- dependency on external providers
-- orchestration complexity growth
-
----
-
-Retrospective
-
-The key insight was that AI was not just a productivity layer.
-
-It changed the structure of the business itself when embedded into workflows.
-
-</div>
+<section>
+<p>
+This is a production AI workflow system built inside a small digital agency after losing a sales director.
+It began as a CRM augmentation project and expanded into an event-driven operational system for onboarding, content generation, and sales augmentation.
+</p>
+</section>
+
+<section class="section">
+<h2>1. Origin</h2>
+
+<p>
+The initial idea was a CRM “wiki layer” for junior sales staff: lead history, objections, prior interactions, and context.
+</p>
+
+<p>
+The project brief was drafted in ~90 minutes during an operational discussion with ownership.
+</p>
+
+<p>
+During that process, scope expanded into:
+</p>
+
+<ul>
+<li>lead scoring</li>
+<li>sentiment analysis</li>
+<li>workflow automation</li>
+<li>AI content generation</li>
+<li>onboarding automation</li>
+<li>feedback optimization loops</li>
+</ul>
+
+<p>
+The system shifted from CRM extension → workflow orchestration layer.
+</p>
+</section>
+
+<section class="section">
+<h2>2. System Overview</h2>
+
+<p>
+Built as an ExpressionEngine module acting as an orchestration layer over CRM and external AI APIs.
+</p>
+
+<ul>
+<li>event-driven workflows</li>
+<li>API-based AI generation</li>
+<li>cron-based orchestration</li>
+<li>human review gates</li>
+<li>modular system design for provider swapping</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>3. Event-Driven Onboarding</h2>
+
+<p>
+A payment event triggered full provisioning:
+</p>
+
+<ul>
+<li>CRM record creation</li>
+<li>Slack channel provisioning</li>
+<li>workflow initialization</li>
+<li>onboarding form generation</li>
+</ul>
+
+<p>
+After onboarding submission:
+</p>
+
+<ul>
+<li>website scraping (Python)</li>
+<li>content structuring into training objects</li>
+<li>AI model adaptation via OpenAI API</li>
+<li>initial content generation pipeline</li>
+</ul>
+
+<p>
+Target behavior: client could sign up at night, system ready for review next morning.
+</p>
+</section>
+
+<section class="section">
+<h2>4. Content System</h2>
+
+<p>
+Each client had a structured content generation pipeline:
+</p>
+
+<ul>
+<li>blogs</li>
+<li>social posts</li>
+<li>SEO content</li>
+<li>website copy</li>
+</ul>
+
+<p>
+Context sources:
+</p>
+
+<ul>
+<li>scraped historical websites</li>
+<li>previous generated content</li>
+<li>brand preferences</li>
+<li>stored client data</li>
+</ul>
+
+<p>
+~23 prompts were used across the marketing pipeline.
+</p>
+</section>
+
+<section class="section">
+<h2>5. Supervisory Loop</h2>
+
+<p>
+A higher-level model aggregated cross-client performance data.
+</p>
+
+<ul>
+<li>engagement metrics</li>
+<li>campaign performance</li>
+<li>human edits</li>
+<li>accept/reject signals</li>
+</ul>
+
+<p>
+Weekly cycle:
+</p>
+
+<ul>
+<li>generate recommendations per client</li>
+<li>client system applies or rejects</li>
+<li>human edits feed back into future behavior</li>
+</ul>
+
+<p>
+This created a recursive feedback system between generation and human correction.
+</p>
+</section>
+
+<section class="section">
+<h2>6. Sales System</h2>
+
+<ul>
+<li>lead enrichment</li>
+<li>lead scoring</li>
+<li>sentiment overlays</li>
+<li>automated follow-ups</li>
+<li>CRM augmentation</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>7. Constraints</h2>
+
+<ul>
+<li>API cost scaling</li>
+<li>workflow synchronization complexity</li>
+<li>prompt orchestration overhead</li>
+<li>provider dependency</li>
+<li>system complexity growth over time</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>8. Outcome</h2>
+
+<ul>
+<li>~60 day onboarding → ~3 weeks</li>
+<li>&lt;2 hour support response across ~90 clients</li>
+<li>~4x revenue growth in ~70 days</li>
+<li>reduced operational load without headcount scaling</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>9. Key Insight</h2>
+
+<p>
+AI was not used as a tool inside an existing workflow.
+It was embedded into the workflow architecture itself.
+</p>
+
+<p>
+This changed:
+</p>
+
+<ul>
+<li>delivery speed</li>
+<li>organizational structure</li>
+<li>coordination overhead</li>
+<li>pricing model</li>
+<li>operational throughput</li>
+</ul>
+</section>
+
+<div class="footer">
+Eric Fricke · AI systems · Workflow architecture · 2023 production deployment
 </div>
 
-</main>
-
-<footer>
-<div class="container">
-Eric Fricke · AI systems, workflow architecture, operational automation
 </div>
-</footer>
 
 </body>
 </html>
