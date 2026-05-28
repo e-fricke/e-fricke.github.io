@@ -27,43 +27,379 @@ founder engineering tools,
 production AI workflows 2023
 " />
 
+<style>
+
+:root {
+  --bg: #06070b;
+  --surface: #0e1117;
+  --surface-2: #121722;
+  --border: rgba(255,255,255,0.08);
+  --text: #e8edf5;
+  --muted: #9ca8ba;
+  --blue: #6dd3ff;
+  --purple: #9d7bff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at top left, rgba(109,211,255,0.12), transparent 35%),
+    radial-gradient(circle at top right, rgba(157,123,255,0.10), transparent 40%),
+    var(--bg);
+
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.75;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+.container {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 32px 20px 120px;
+}
+
+/* =========================
+   DOSSIER HEADER
+   ========================= */
+
+.hero {
+  padding: 28px 0 12px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.02;
+  margin: 0 0 20px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    var(--blue) 50%,
+    var(--purple) 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead {
+  max-width: 860px;
+  color: var(--text);
+  font-size: 1.08rem;
+}
+
+.contact {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =========================
+   SIGNAL CARDS
+   ========================= */
+
+.signals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.signal-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 20px;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02)
+    );
+
+  border: 1px solid rgba(109,211,255,0.18);
+}
+
+.signal-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at top left,
+    rgba(109,211,255,0.16),
+    transparent 55%),
+
+    radial-gradient(circle at bottom right,
+    rgba(157,123,255,0.12),
+    transparent 60%);
+}
+
+.signal-card strong,
+.signal-card span {
+  position: relative;
+  z-index: 2;
+}
+
+.signal-card strong {
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.signal-card span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* =========================
+   DOSSIER NAVIGATION
+   ========================= */
+
+.dossier-nav {
+  margin-top: 42px;
+  padding: 18px 20px;
+
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+}
+
+.dossier-nav-title {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.dossier-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dossier-links a {
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* =========================
+   DOSSIER SECTIONS
+   ========================= */
+
+.dossier-section {
+  margin-top: 56px;
+}
+
+.section-card {
+  padding: 34px;
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.015)
+    );
+
+  border: 1px solid var(--border);
+}
+
+.section-label {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 14px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 36px;
+  font-size: 1.2rem;
+}
+
+p,
+li {
+  color: var(--text);
+}
+
+ul {
+  padding-left: 22px;
+}
+
+/* =========================
+   PLACEHOLDER DIAGRAMS
+   ========================= */
+
+.diagram-placeholder {
+  margin: 28px 0;
+  padding: 42px 24px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(109,211,255,0.05),
+      rgba(157,123,255,0.04)
+    );
+
+  border: 1px dashed rgba(109,211,255,0.30);
+
+  color: var(--muted);
+  text-align: center;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .signals {
+    grid-template-columns: 1fr;
+  }
+
+  .section-card {
+    padding: 24px;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
+
+<div class="container">
 
 <!-- =========================
      SIGNAL LAYER
      ========================= -->
 
-<header>
+<header class="hero">
 
-<h1>AI Operational Systems Case Study (2023)</h1>
+<div class="eyebrow">
+SYSTEM DOSSIER · PUBLIC TECHNICAL ARCHIVE
+</div>
 
-<p>
+<h1>
+AI Operational Systems Case Study (2023)
+</h1>
+
+<p class="lead">
 A production AI-native operational system that began as a CRM wiki extension concept and evolved into a modular workflow architecture for onboarding, content generation, and CRM-driven automation inside a live agency environment.
 </p>
 
-<section>
+<div class="contact">
+Eric Fricke · <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
+</div>
 
-<h2>Operational Signals</h2>
+<div class="signals">
 
-<ul>
-<li><strong>Onboarding compression:</strong> ~60 days → ~3 weeks</li>
-<li><strong>Support response time:</strong> under 2 hours across ~90 clients</li>
-<li><strong>Revenue impact:</strong> ~4x growth within ~70 days</li>
-</ul>
+<div class="signal-card">
+<strong>60 Days → 3 Weeks</strong>
+<span>Onboarding compression</span>
+</div>
 
-</section>
+<div class="signal-card">
+<strong>&lt; 2 Hours</strong>
+<span>Support response time across ~90 clients</span>
+</div>
+
+<div class="signal-card">
+<strong>~4x Growth</strong>
+<span>Revenue impact within ~70 days</span>
+</div>
+
+</div>
 
 </header>
 
 <!-- =========================
-     ORIGIN CONTEXT (2023)
+     DOSSIER NAVIGATION
      ========================= -->
 
-<section>
+<nav class="dossier-nav">
 
-<h2>Origin Context (2023): CRM Wiki → System Evolution</h2>
+<div class="dossier-nav-title">
+System Map
+</div>
+
+<div class="dossier-links">
+
+<a href="#origin">Origin Context</a>
+<a href="#overview">Overview</a>
+<a href="#constraints">Constraints</a>
+<a href="#architecture">Architecture</a>
+<a href="#onboarding">Onboarding</a>
+<a href="#content">Content System</a>
+<a href="#feedback">Feedback Loop</a>
+<a href="#outcomes">Outcomes</a>
+<a href="#limitations">Limitations</a>
+
+</div>
+
+</nav>
+
+<!-- =========================
+     ORIGIN CONTEXT
+     ========================= -->
+
+<section class="dossier-section" id="origin">
+
+<div class="section-card">
+
+<div class="section-label">
+Origin Context
+</div>
+
+<h2>
+CRM Wiki → System Evolution
+</h2>
 
 <p>
 This system originated in 2023 as an attempt to build a wiki-like extension on top of an existing CRM to support a very young sales team with better internal context and structure.
@@ -87,19 +423,25 @@ As implementation progressed, operational constraints exposed deeper system-leve
 This shifted the project from internal tooling into a production exploration of AI-augmented operational systems.
 </p>
 
+</div>
+
 </section>
 
-<hr />
-
-<main>
-
 <!-- =========================
-     ORIGINAL CASE STUDY (UNCHANGED CONTENT)
+     CASE STUDY
      ========================= -->
 
-<section>
+<section class="dossier-section" id="overview">
 
-<h2>Building a Modular AI-Native Operations System in a Small Agency Environment</h2>
+<div class="section-card">
+
+<div class="section-label">
+System Overview
+</div>
+
+<h2>
+Building a Modular AI-Native Operations System in a Small Agency Environment
+</h2>
 
 <h3>Overview</h3>
 
@@ -111,17 +453,11 @@ This shifted the project from internal tooling into a production exploration of 
 
 <p>The goal was not full automation. The goal was to reduce operational friction and increase throughput while maintaining human oversight in all client-facing outputs.</p>
 
-<!-- =========================
-     DIAGRAM PLACEHOLDER 1 (ORIGINAL POSITION)
-     ========================= -->
-
-<div>
+<div class="diagram-placeholder">
 [Placeholder: System Architecture Diagram — CRM → Event Layer → AI Generation → Human Review → Delivery]
 </div>
 
-</section>
-
-<section>
+<section id="constraints">
 
 <h3>Context & Constraints</h3>
 
@@ -135,7 +471,7 @@ This shifted the project from internal tooling into a production exploration of 
 
 </section>
 
-<section>
+<section id="architecture">
 
 <h3>System Architecture Overview</h3>
 
@@ -157,7 +493,7 @@ Core principle: replace rigid workflows with composable, event-driven systems co
 
 </section>
 
-<section>
+<section id="onboarding">
 
 <h3>Event-Driven Client Onboarding</h3>
 
@@ -175,21 +511,13 @@ Core principle: replace rigid workflows with composable, event-driven systems co
 A client could sign up late Sunday evening and have deliverables prepared for internal review by the next cycle.
 </p>
 
-</section>
-
-<!-- =========================
-     DIAGRAM PLACEHOLDER 2
-     ========================= -->
-
-<section>
-
-<div>
+<div class="diagram-placeholder">
 [Placeholder: Event-Driven Onboarding Flow Diagram]
 </div>
 
 </section>
 
-<section>
+<section id="content">
 
 <h3>AI Content & Brand Generation Layer</h3>
 
@@ -204,21 +532,13 @@ A client could sign up late Sunday evening and have deliverables prepared for in
 A higher-level optimization layer aggregated engagement data and generated iterative improvements across accounts.
 </p>
 
-</section>
-
-<!-- =========================
-     DIAGRAM PLACEHOLDER 3
-     ========================= -->
-
-<section>
-
-<div>
+<div class="diagram-placeholder">
 [Placeholder: AI Content Pipeline Architecture Diagram]
 </div>
 
 </section>
 
-<section>
+<section id="feedback">
 
 <h3>Feedback Loop System</h3>
 
@@ -233,21 +553,13 @@ A higher-level optimization layer aggregated engagement data and generated itera
 Weekly optimization cycles fed insights back into downstream workflows, enabling continuous refinement rather than static automation.
 </p>
 
-</section>
-
-<!-- =========================
-     DIAGRAM PLACEHOLDER 4
-     ========================= -->
-
-<section>
-
-<div>
+<div class="diagram-placeholder">
 [Placeholder: Feedback Loop / Optimization Graph]
 </div>
 
 </section>
 
-<section>
+<section id="outcomes">
 
 <h3>Operational Outcomes</h3>
 
@@ -260,7 +572,7 @@ Weekly optimization cycles fed insights back into downstream workflows, enabling
 
 </section>
 
-<section>
+<section id="limitations">
 
 <h3>Constraints, Failures, and Limitations</h3>
 
@@ -278,7 +590,11 @@ The system was intentionally not fully autonomous. It functioned as a human-stab
 
 </section>
 
-</main>
+</div>
+
+</section>
+
+</div>
 
 </body>
 
