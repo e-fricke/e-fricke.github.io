@@ -6,20 +6,13 @@
 
 <title>AI Operational Systems Case Study (2023) | Eric Fricke</title>
 
-<meta name="description" content="2023 AI-native operational system built inside a small agency environment. Event-driven onboarding, AI content pipelines, and recursive workflow architecture." />
+<meta name="description" content="2023 AI-native operational system built inside a small agency environment. Event-driven onboarding, AI content pipelines, recursive workflow architecture." />
 <meta name="author" content="Eric Fricke" />
 <meta name="robots" content="index, follow" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="AI Operational Systems Case Study (2023)" />
-<meta property="og:description" content="Event-driven AI workflow system built inside a small agency environment in 2023." />
-<meta property="og:type" content="website" />
-
-<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-
 body {
   background: #070A12;
   color: #E8EDF5;
@@ -33,7 +26,6 @@ a:hover { opacity: 0.8; }
 .navbar {
   background: rgba(10,12,20,0.9);
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
 }
 
 .hero {
@@ -61,39 +53,28 @@ a:hover { opacity: 0.8; }
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px;
   padding: 24px;
-}
-
-pre {
-  background: rgba(255,255,255,0.04);
-  padding: 16px;
-  border-radius: 10px;
-  overflow-x: auto;
-  color: #E8EDF5;
+  white-space: pre-wrap;
 }
 
 footer {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 40px 0;
   color: #9AA6B2;
-  font-size: 14px;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav class="navbar navbar-dark fixed-top">
   <div class="container">
     <span class="navbar-brand">System Dossier</span>
-    <div class="ms-auto text-light small">
+    <span class="text-light small">
       Eric Fricke · <a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
-    </div>
+    </span>
   </div>
 </nav>
 
-<!-- HERO -->
 <header class="hero">
   <div class="container">
     <h1>AI Operational Systems Case Study (2023)</h1>
@@ -104,15 +85,14 @@ footer {
   </div>
 </header>
 
-<!-- CASE STUDY CONTENT (UNCHANGED) -->
 <main class="container">
 
 <div class="section">
 <div class="card-dossier">
 
-# Building an AI-Native Operational System Inside a Small Agency Environment (2023)
+Building an AI-Native Operational System Inside a Small Agency Environment (2023)
 
-## Overview
+Overview
 
 In mid-2023, a small digital marketing agency lost a sales director and needed a way to support a young and relatively inexperienced sales staff with better operational context and workflow consistency.
 
@@ -140,7 +120,7 @@ The goal was to reduce operational friction, compress onboarding latency, increa
 
 ---
 
-## Operational Context
+Operational Context
 
 The agency operated using a traditional high-friction delivery model:
 
@@ -160,7 +140,7 @@ This represented a significant operational shift away from traditional agency pa
 
 ---
 
-## Core Architectural Philosophy
+Core Architectural Philosophy
 
 The system was intentionally designed as a modular orchestration layer rather than a monolithic application.
 
@@ -188,7 +168,7 @@ The system ultimately evolved into two interconnected operational layers:
 
 ---
 
-## Event-Driven Client Provisioning
+Event-Driven Client Provisioning
 
 The onboarding workflow was initiated automatically following successful payment confirmation through the company website.
 
@@ -225,7 +205,7 @@ The result was a workflow where a client could theoretically subscribe late Sund
 
 ---
 
-## AI Content Generation System
+AI Content Generation System
 
 Each client operated inside an individualized content generation workflow.
 
@@ -253,7 +233,7 @@ The marketing automation pipeline eventually contained approximately 23 coordina
 
 ---
 
-## Supervisory Optimization Layer
+Supervisory Optimization Layer
 
 One of the more experimental system behaviors involved a higher-level supervisory model layer operating above individual client systems.
 
@@ -277,27 +257,21 @@ The goal was not autonomous decision-making.
 
 The goal was iterative operational refinement through recursive feedback loops.
 
-In practice, this produced an early form of AI-assisted workflow adaptation centered around human validation rather than unrestricted automation.
-
 ---
 
-## Website Generation Workflows
+Website Generation Workflows
 
 On the web development side, the system also explored AI-assisted website generation pipelines.
 
 For simpler websites, onboarding form data could be transformed into structured prompts that interfaced with external vendor tooling capable of generating WordPress websites programmatically.
 
-This workflow was designed to reduce the amount of repetitive setup and production work required for low-complexity website deployments.
-
-Human review still remained necessary before deployment.
-
 ---
 
-## Sales Augmentation Systems
+Sales Augmentation Systems
 
 The sales side of the platform evolved into a separate operational layer focused on workflow augmentation rather than replacement.
 
-Features explored or implemented included:
+Features included:
 - lead enrichment
 - lead scoring
 - sentiment analysis overlays
@@ -305,112 +279,49 @@ Features explored or implemented included:
 - organizational memory tooling
 - contextual sales assistance
 
-The original CRM wiki concept gradually evolved into a broader operational support environment for sales staff.
-
-The goal was to reduce coordination overhead and improve contextual visibility during sales workflows rather than replace human operators.
-
 ---
 
-## Human Review Philosophy
+Human Review Philosophy
 
 Although many workflows were technically capable of operating with minimal oversight, the system intentionally maintained human review requirements across all client-facing outputs.
 
 The architecture separated operational capability from operational trust.
 
-Removing human review entirely would likely have increased output volume but degraded client relationships, output quality, and operational reliability.
+---
 
-The long-term assumption was that human review requirements would gradually decrease as model reliability improved over time.
+Operational Outcomes
+
+- onboarding compressed from ~60 days to ~3 weeks
+- support response under 2 hours across ~90 clients
+- ~4x revenue growth within ~70 days
+- reduced operational load without proportional headcount increase
 
 ---
 
-## Operational Outcomes
-
-The system produced measurable operational improvements within a relatively short deployment window.
-
-Observed outcomes included:
-- onboarding compression from approximately 60 days to ~3 weeks
-- support response times reduced to under 2 hours across ~90 clients
-- significantly reduced repetitive operational workload
-- increased consistency in content generation workflows
-- approximately 4x revenue growth within ~70 days after scaling marketing deployment
-
-These outcomes were achieved without proportional increases in headcount.
-
----
-
-## Limitations & Operational Challenges
-
-The primary scaling bottlenecks were not model capabilities themselves but orchestration complexity and API economics.
-
-Several operational limitations emerged:
+Limitations & Operational Challenges
 
 - increasing API costs
-- synchronization complexity between workflow stages
-- brittle scheduling dependencies
+- synchronization complexity
 - prompt coordination overhead
-- dependency on third-party providers
-- noisy scraped data inputs
-
-Prompt engineering itself became a significant operational discipline due to the number of interconnected workflow stages.
-
-The system also accumulated orchestration complexity faster than initially anticipated.
-
-As workflows expanded, reasoning about system state and synchronization behavior became increasingly difficult using lightweight scheduling infrastructure alone.
-
-The dataset available before departure from the company was not large enough to draw strong conclusions regarding long-term hallucination behavior or context drift patterns.
+- dependency on external providers
+- orchestration complexity growth
 
 ---
 
-## Organizational Adoption
+Retrospective
 
-Initial staff reactions were mixed.
+The key insight was that AI was not just a productivity layer.
 
-Operational concerns centered around automation anxiety and uncertainty regarding role displacement.
-
-Adoption improved significantly once staff recognized the system’s primary purpose was operational scaling and workload reduction rather than direct replacement of human roles.
-
-In practice, most workflows still depended heavily on human validation and coordination.
-
----
-
-## Retrospective
-
-The most important insight from the project was that AI was not merely a productivity layer added onto an existing business.
-
-The larger shift was structural.
-
-Once AI systems became embedded directly into operational workflows:
-- onboarding behavior changed
-- staffing requirements changed
-- pricing structures changed
-- delivery timelines changed
-- coordination overhead changed
-- throughput constraints changed
-
-The most difficult problems were rarely model outputs themselves.
-
-The harder problems involved:
-- workflow orchestration
-- operational sequencing
-- context continuity
-- synchronization
-- human validation
-- state management
-- reducing friction between system layers
-
-The system was operationally constrained, imperfect, and not infinitely scalable in its original form.
-
-However, it demonstrated that embedding AI directly into workflow architecture could fundamentally alter how a business operated rather than simply accelerating isolated tasks within existing processes.
+It changed the structure of the business itself when embedded into workflows.
 
 </div>
 </div>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
 <div class="container">
-  Built by Eric Fricke · AI systems, workflow architecture, operational automation  
+Eric Fricke · AI systems, workflow architecture, operational automation
 </div>
 </footer>
 
