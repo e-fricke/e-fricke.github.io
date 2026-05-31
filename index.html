@@ -1,1217 +1,302 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+# Building an AI-Native Operational System Inside a Small Agency Environment (2023)
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+## Overview
 
-<title>AI Operational Systems Case Study (2023) | Eric Fricke</title>
-
-<meta name="description" content="Production AI-native operational architecture built in 2023 using modular workflow orchestration, CRM augmentation, AI-assisted onboarding, recursive optimization systems, and human-in-the-loop automation." />
-
-<meta name="keywords" content="
-AI systems architecture,
-workflow orchestration,
-CRM augmentation,
-AI operations,
-event-driven systems,
-automation architecture,
-applied AI systems,
-AI onboarding systems,
-agentic workflow systems,
-ExpressionEngine,
-AI business systems,
-operational automation,
-human in the loop AI,
-recursive optimization systems,
-AI content generation,
-production AI systems 2023,
-Eric Fricke
-" />
-
-<meta name="author" content="Eric Fricke" />
-<meta name="robots" content="index,follow" />
-
-<meta property="og:title" content="AI Operational Systems Case Study (2023)" />
-<meta property="og:description" content="A production AI-native operational system built in 2023 that evolved from a CRM knowledge extension into a modular workflow orchestration architecture." />
-<meta property="og:type" content="website" />
-
-<style>
-
-:root{
-  --bg:#05070b;
-  --surface:#0e1219;
-  --surface2:#131a24;
-  --border:rgba(255,255,255,0.08);
-  --text:#edf2fa;
-  --muted:#9ea9bb;
-  --blue:#6fd5ff;
-  --purple:#9b7cff;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:
-    radial-gradient(circle at top left, rgba(111,213,255,.12), transparent 30%),
-    radial-gradient(circle at top right, rgba(155,124,255,.10), transparent 35%),
-    linear-gradient(to bottom,#05070b,#070a10);
-
-  color:var(--text);
-  font-family:Inter,system-ui,sans-serif;
-  line-height:1.8;
-}
-
-.container{
-  width:100%;
-  max-width:1120px;
-  margin:auto;
-  padding:34px 20px 120px;
-}
-
-.hero{
-  padding-top:20px;
-}
-
-.eyebrow{
-  font-size:12px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:18px;
-}
-
-h1{
-  font-size:clamp(2.6rem,7vw,5rem);
-  line-height:1;
-  margin:0 0 24px;
-
-  background:linear-gradient(
-    135deg,
-    #ffffff 0%,
-    var(--blue) 45%,
-    var(--purple) 100%
-  );
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.lead{
-  max-width:900px;
-  color:var(--text);
-  font-size:1.1rem;
-}
-
-.contact{
-  margin-top:20px;
-  color:var(--muted);
-  font-size:15px;
-}
-
-.contact a{
-  color:var(--blue);
-  text-decoration:none;
-}
-
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-top:26px;
-}
-
-.hero-btn{
-  padding:12px 18px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.08);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.05),
-      rgba(255,255,255,.02)
-    );
-
-  color:var(--text);
-  cursor:pointer;
-  text-decoration:none;
-  font-size:14px;
-  transition:.2s ease;
-}
-
-.hero-btn:hover{
-  transform:translateY(-2px);
-  border-color:rgba(111,213,255,.28);
-}
-
-.signals{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:34px;
-}
-
-.signal-card{
-  position:relative;
-  overflow:hidden;
-
-  padding:22px;
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.04),
-      rgba(255,255,255,.015)
-    );
-
-  border:1px solid rgba(111,213,255,.18);
-}
-
-.signal-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    radial-gradient(circle at top left,
-    rgba(111,213,255,.16),
-    transparent 55%),
-
-    radial-gradient(circle at bottom right,
-    rgba(155,124,255,.12),
-    transparent 60%);
-}
-
-.signal-card strong,
-.signal-card span{
-  position:relative;
-  z-index:2;
-}
-
-.signal-card strong{
-  display:block;
-  font-size:1.2rem;
-  margin-bottom:8px;
-}
-
-.signal-card span{
-  color:var(--muted);
-  font-size:.95rem;
-}
-
-.nav{
-  margin-top:42px;
-  padding:20px;
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.03),
-      rgba(255,255,255,.015)
-    );
-
-  border:1px solid var(--border);
-}
-
-.nav-title{
-  color:var(--muted);
-  font-size:12px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  margin-bottom:16px;
-}
-
-.nav-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:var(--text);
-
-  padding:10px 14px;
-  border-radius:999px;
-
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
-
-  font-size:14px;
-}
-
-section{
-  margin-top:58px;
-}
-
-.card{
-  padding:36px;
-  border-radius:24px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.03),
-      rgba(255,255,255,.015)
-    );
-
-  border:1px solid var(--border);
-}
-
-.section-label{
-  color:var(--muted);
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:12px;
-  margin-bottom:14px;
-}
-
-h2{
-  margin-top:0;
-  font-size:2rem;
-}
-
-p{
-  color:var(--text);
-}
-
-ul{
-  padding-left:24px;
-}
-
-li{
-  margin-bottom:10px;
-  color:var(--text);
-}
-
-.diagram{
-  margin-top:28px;
-  padding:40px 24px;
-
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(111,213,255,.05),
-      rgba(155,124,255,.04)
-    );
-
-  border:1px dashed rgba(111,213,255,.24);
-
-  color:var(--muted);
-  text-align:center;
-}
-
-footer{
-  margin-top:90px;
-  color:var(--muted);
-  text-align:center;
-  font-size:14px;
-}
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-
-  display:none;
-  align-items:center;
-  justify-content:center;
-
-  z-index:1000;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-content{
-  width:90%;
-  max-width:900px;
-  max-height:85vh;
-  overflow:auto;
-
-  background:#ffffff;
-  color:#111111;
-
-  padding:36px;
-  border-radius:20px;
-}
-
-.modal-content h2{
-  margin-top:0;
-  color:#000;
-}
-
-.modal-content p,
-.modal-content li{
-  color:#111;
-}
-
-.close-btn{
-  margin-top:28px;
-
-  padding:10px 16px;
-
-  background:#111;
-  color:#fff;
-
-  border:none;
-  border-radius:10px;
-
-  cursor:pointer;
-}
-
-@media(max-width:900px){
-
-  .signals{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    padding:24px;
-  }
-
-  .hero-actions{
-    flex-direction:column;
-  }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<header class="hero">
-
-<div class="eyebrow">
-SYSTEM DOSSIER · PUBLIC TECHNICAL ARCHIVE
-</div>
-
-<h1>
-AI Operational Systems Case Study (2023)
-</h1>
-
-<p class="lead">
-A production AI-native operational architecture built in 2023 that evolved from a CRM knowledge extension into a modular workflow orchestration system for onboarding, AI-assisted content generation, recursive optimization, and operational augmentation inside a live agency environment.
-</p>
-
-<div class="contact">
-Eric Fricke ·
-<a href="mailto:fricke.ea@gmail.com">fricke.ea@gmail.com</a>
-</div>
-
-<div class="hero-actions">
-
-<button class="hero-btn" onclick="openModal()">
-Key Points
-</button>
-
-<a class="hero-btn" href="#overview">
-Read Full Case Study
-</a>
-
-</div>
-
-<div class="signals">
-
-<div class="signal-card">
-<strong>~60 Days → ~3 Weeks</strong>
-<span>Onboarding compression</span>
-</div>
-
-<div class="signal-card">
-<strong>&lt; 2 Hour Response Time</strong>
-<span>Across ~90 active clients</span>
-</div>
-
-<div class="signal-card">
-<strong>~4x Revenue Growth</strong>
-<span>Within ~70 days after scaled deployment</span>
-</div>
-
-</div>
-
-</header>
-
-<nav class="nav">
-
-<div class="nav-title">
-System Map
-</div>
-
-<div class="nav-links">
-
-<a href="#overview">Overview</a>
-<a href="#operational-context">Operational Context</a>
-<a href="#architecture">Architecture</a>
-<a href="#provisioning">Client Provisioning</a>
-<a href="#content-generation">Content Generation</a>
-<a href="#supervisory-layer">Supervisory Layer</a>
-<a href="#website-generation">Website Generation</a>
-<a href="#sales-systems">Sales Systems</a>
-<a href="#human-review">Human Review</a>
-<a href="#outcomes">Outcomes</a>
-<a href="#limitations">Limitations</a>
-<a href="#adoption">Adoption</a>
-<a href="#retrospective">Retrospective</a>
-
-</div>
-
-</nav>
-
-<section id="overview">
-
-<div class="card">
-
-<div class="section-label">
-Overview
-</div>
-
-<h2>
-Building an AI-Native Operational System Inside a Small Agency Environment (2023)
-</h2>
-
-<p>
 In mid-2023, a small digital marketing agency lost a sales director and needed a way to support a young and relatively inexperienced sales staff with better operational context and workflow consistency.
-</p>
 
-<p>
 The original proposal was modest: extend the agency’s existing CRM with a wiki-like internal knowledge layer containing lead history, previous objections, prior interactions, and organizational context.
-</p>
 
-<p>
 The initial project brief was drafted in approximately 90 minutes following a strategy discussion with ownership.
-</p>
 
-<p>
 During the drafting process, the scope expanded rapidly as additional operational possibilities became obvious:
-</p>
 
-<ul>
-<li>lead scoring</li>
-<li>sentiment analysis</li>
-<li>workflow automation</li>
-<li>AI-assisted content generation</li>
-<li>automated onboarding</li>
-<li>recursive optimization systems</li>
-<li>operational augmentation for both sales and marketing</li>
-</ul>
+* lead scoring
+* sentiment analysis
+* workflow automation
+* AI-assisted content generation
+* automated onboarding
+* recursive optimization systems
+* operational augmentation for both sales and marketing
 
-<p>
 What began as an internal CRM extension evolved into a broader operational architecture built around workflow orchestration and AI-assisted execution.
-</p>
 
-<p>
 The resulting system was implemented inside a live production environment using an ExpressionEngine module architecture, API-based AI systems, scheduled workflows, and human review pipelines.
-</p>
 
-<p>
 The goal was not full autonomy.
-</p>
 
-<p>
 The goal was to reduce operational friction, compress onboarding latency, increase throughput, and restructure the business around AI-assisted operational workflows.
-</p>
 
-<div class="diagram">
-[ Placeholder: CRM → Workflow Engine → AI Systems → Human Review → Delivery ]
-</div>
+---
 
-</div>
+## Operational Context
 
-</section>
-
-<section id="operational-context">
-
-<div class="card">
-
-<div class="section-label">
-Operational Context
-</div>
-
-<h2>
-Business Model Transition
-</h2>
-
-<p>
 The agency operated using a traditional high-friction delivery model:
-</p>
 
-<ul>
-<li>large upfront website projects</li>
-<li>slow onboarding cycles</li>
-<li>repeated approval loops</li>
-<li>manual content production</li>
-<li>fragmented operational tooling</li>
-</ul>
+* large upfront website projects
+* slow onboarding cycles
+* repeated approval loops
+* manual content production
+* fragmented operational tooling
 
-<p>
 The system architecture enabled a transition toward a subscription-oriented delivery model.
-</p>
 
-<p>
 Clients could subscribe directly through the company website for approximately $299/month, complete onboarding asynchronously, and move into production workflows almost immediately after payment.
-</p>
 
-<p>
 After two years, clients owned their website code and assets.
-</p>
 
-<p>
 This represented a significant operational shift away from traditional agency pacing constraints and toward higher-throughput workflow-driven service delivery.
-</p>
 
-</div>
+---
 
-</section>
+## Core Architectural Philosophy
 
-<section id="architecture">
-
-<div class="card">
-
-<div class="section-label">
-Core Architectural Philosophy
-</div>
-
-<h2>
-Modular Workflow Orchestration
-</h2>
-
-<p>
 The system was intentionally designed as a modular orchestration layer rather than a monolithic application.
-</p>
 
-<p>
-It was immediately clear in 2023 that underlying AI providers, APIs, and model capabilities were evolving rapidly.
-</p>
+It was immediately clear in 2023 that underlying AI providers, APIs, and model capabilities were evolving rapidly. Tight coupling between workflows and specific vendors would have created operational fragility and slowed iteration.
 
-<p>
-Tight coupling between workflows and specific vendors would have created operational fragility and slowed iteration.
-</p>
-
-<p>
 The ExpressionEngine module therefore operated primarily as:
-</p>
 
-<ul>
-<li>an orchestration layer</li>
-<li>a workflow/state manager</li>
-<li>an API broker</li>
-<li>an automation trigger system</li>
-</ul>
+* an orchestration layer
+* a workflow/state manager
+* an API broker
+* an automation trigger system
 
-<p>
 Most operational components communicated through API abstractions built into the module architecture.
-</p>
 
-<p>
 This allowed:
-</p>
 
-<ul>
-<li>workflow stages to evolve independently</li>
-<li>prompts to be modified incrementally</li>
-<li>providers to be swapped when necessary</li>
-<li>operational tooling to expand without requiring full system rewrites</li>
-</ul>
+* workflow stages to evolve independently
+* prompts to be modified incrementally
+* providers to be swapped when necessary
+* operational tooling to expand without requiring full system rewrites
 
-<p>
 The system ultimately evolved into two interconnected operational layers:
-</p>
 
-<ol>
-<li>Sales augmentation systems</li>
-<li>Marketing / website production systems</li>
-</ol>
+1. Sales augmentation systems
+2. Marketing / website production systems
 
-<div class="diagram">
-[ Placeholder: Modular ExpressionEngine Architecture Diagram ]
-</div>
+---
 
-</div>
+## Event-Driven Client Provisioning
 
-</section>
-
-<section id="provisioning">
-
-<div class="card">
-
-<div class="section-label">
-Event-Driven Client Provisioning
-</div>
-
-<h2>
-Automated Onboarding Workflow
-</h2>
-
-<p>
 The onboarding workflow was initiated automatically following successful payment confirmation through the company website.
-</p>
 
-<p>
 A successful payment event triggered a provisioning pipeline inside the ExpressionEngine module layer.
-</p>
 
-<p>
 This process automatically generated:
-</p>
 
-<ul>
-<li>CRM records</li>
-<li>workflow entries</li>
-<li>onboarding states</li>
-<li>Slack channels</li>
-<li>communication flows</li>
-<li>internal operational tracking objects</li>
-</ul>
+* CRM records
+* workflow entries
+* onboarding states
+* Slack channels
+* communication flows
+* internal operational tracking objects
 
-<p>
 Clients immediately received:
-</p>
 
-<ul>
-<li>Slack invitations</li>
-<li>onboarding instructions</li>
-<li>intake forms</li>
-<li>asset upload requests</li>
-</ul>
+* Slack invitations
+* onboarding instructions
+* intake forms
+* asset upload requests
 
-<p>
 The onboarding forms collected:
-</p>
 
-<ul>
-<li>existing website information</li>
-<li>brand preferences</li>
-<li>desired changes</li>
-<li>uploaded logos/assets</li>
-<li>operational goals</li>
-<li>stylistic references</li>
-</ul>
+* existing website information
+* brand preferences
+* desired changes
+* uploaded logos/assets
+* operational goals
+* stylistic references
 
-<p>
 Following onboarding submission, a Python-based scraping system collected content from the client’s existing website and transformed it into structured training/context data.
-</p>
 
-<p>
 This data was then transmitted through OpenAI fine-tuning endpoints and related API workflows in order to generate client-specific content behavior and contextual output consistency.
-</p>
 
-<p>
 The result was a workflow where a client could theoretically subscribe late Sunday evening and have onboarding artifacts, generated content, and internal production preparation ready for review by Monday morning.
-</p>
 
-<div class="diagram">
-[ Placeholder: Event-Driven Provisioning Flowchart ]
-</div>
+---
 
-</div>
+## AI Content Generation System
 
-</section>
-
-<section id="content-generation">
-
-<div class="card">
-
-<div class="section-label">
-AI Content Generation System
-</div>
-
-<h2>
-Client-Specific Generation Pipelines
-</h2>
-
-<p>
 Each client operated inside an individualized content generation workflow.
-</p>
 
-<p>
 Generated outputs included:
-</p>
 
-<ul>
-<li>blog articles</li>
-<li>social media posts</li>
-<li>SEO-oriented content</li>
-<li>marketing suggestions</li>
-<li>website copy</li>
-</ul>
+* blog articles
+* social media posts
+* SEO-oriented content
+* marketing suggestions
+* website copy
 
-<p>
 The content system incorporated:
-</p>
 
-<ul>
-<li>scraped historical website data</li>
-<li>prior generated content</li>
-<li>brand tone information</li>
-<li>operational preferences</li>
-<li>historical engagement behavior</li>
-</ul>
+* scraped historical website data
+* prior generated content
+* brand tone information
+* operational preferences
+* historical engagement behavior
 
-<p>
 The architecture gradually evolved away from isolated prompt execution and toward persistent contextual generation.
-</p>
 
-<p>
 Generated assets and historical outputs were persisted through internal client-linked storage tables to maintain continuity and reduce repetitive output generation.
-</p>
 
-<p>
 Content repetition detection was also implemented and flagged for human review when necessary.
-</p>
 
-<p>
 The marketing automation pipeline eventually contained approximately 23 coordinated prompts across multiple workflow stages.
-</p>
 
-<div class="diagram">
-[ Placeholder: AI Content Generation Pipeline ]
-</div>
+---
 
-</div>
+## Supervisory Optimization Layer
 
-</section>
-
-<section id="supervisory-layer">
-
-<div class="card">
-
-<div class="section-label">
-Supervisory Optimization Layer
-</div>
-
-<h2>
-Recursive Feedback Architecture
-</h2>
-
-<p>
 One of the more experimental system behaviors involved a higher-level supervisory model layer operating above individual client systems.
-</p>
 
-<p>
 This supervisory layer aggregated:
-</p>
 
-<ul>
-<li>engagement metrics</li>
-<li>analytics data</li>
-<li>campaign performance</li>
-<li>human edit behavior</li>
-<li>acceptance/rejection patterns</li>
-</ul>
+* engagement metrics
+* analytics data
+* campaign performance
+* human edit behavior
+* acceptance/rejection patterns
 
-<p>
 A scheduled weekly optimization cycle generated recommendations for individual client systems based on observed performance data.
-</p>
 
-<p>
 Individual client workflows then returned structured responses indicating:
-</p>
 
-<ul>
-<li>which recommendations were accepted</li>
-<li>which were rejected</li>
-<li>which outputs required human modification</li>
-</ul>
+* which recommendations were accepted
+* which were rejected
+* which outputs required human modification
 
-<p>
 Human edits effectively became operational feedback signals inside future workflow behavior.
-</p>
 
-<p>
 The goal was not autonomous decision-making.
-</p>
 
-<p>
 The goal was iterative operational refinement through recursive feedback loops.
-</p>
 
-<p>
 In practice, this produced an early form of AI-assisted workflow adaptation centered around human validation rather than unrestricted automation.
-</p>
 
-<div class="diagram">
-[ Placeholder: Recursive Optimization Loop Diagram ]
-</div>
+---
 
-</div>
+## Website Generation Workflows
 
-</section>
-
-<section id="website-generation">
-
-<div class="card">
-
-<div class="section-label">
-Website Generation Workflows
-</div>
-
-<h2>
-AI-Assisted Website Production
-</h2>
-
-<p>
 On the web development side, the system also explored AI-assisted website generation pipelines.
-</p>
 
-<p>
 For simpler websites, onboarding form data could be transformed into structured prompts that interfaced with external vendor tooling capable of generating WordPress websites programmatically.
-</p>
 
-<p>
 This workflow was designed to reduce the amount of repetitive setup and production work required for low-complexity website deployments.
-</p>
 
-<p>
 Human review still remained necessary before deployment.
-</p>
 
-<div class="diagram">
-[ Placeholder: AI Website Generation Workflow ]
-</div>
+---
 
-</div>
+## Sales Augmentation Systems
 
-</section>
-
-<section id="sales-systems">
-
-<div class="card">
-
-<div class="section-label">
-Sales Augmentation Systems
-</div>
-
-<h2>
-CRM Intelligence Layer
-</h2>
-
-<p>
 The sales side of the platform evolved into a separate operational layer focused on workflow augmentation rather than replacement.
-</p>
 
-<p>
 Features explored or implemented included:
-</p>
 
-<ul>
-<li>lead enrichment</li>
-<li>lead scoring</li>
-<li>sentiment analysis overlays</li>
-<li>automated follow-up systems</li>
-<li>organizational memory tooling</li>
-<li>contextual sales assistance</li>
-</ul>
+* lead enrichment
+* lead scoring
+* sentiment analysis overlays
+* automated follow-up systems
+* organizational memory tooling
+* contextual sales assistance
 
-<p>
 The original CRM wiki concept gradually evolved into a broader operational support environment for sales staff.
-</p>
 
-<p>
 The goal was to reduce coordination overhead and improve contextual visibility during sales workflows rather than replace human operators.
-</p>
 
-<div class="diagram">
-[ Placeholder: CRM Intelligence + Sales Augmentation Layer ]
-</div>
+---
 
-</div>
+## Human Review Philosophy
 
-</section>
-
-<section id="human-review">
-
-<div class="card">
-
-<div class="section-label">
-Human Review Philosophy
-</div>
-
-<h2>
-Human-In-The-Loop Stabilization
-</h2>
-
-<p>
 Although many workflows were technically capable of operating with minimal oversight, the system intentionally maintained human review requirements across all client-facing outputs.
-</p>
 
-<p>
 The architecture separated operational capability from operational trust.
-</p>
 
-<p>
 Removing human review entirely would likely have increased output volume but degraded client relationships, output quality, and operational reliability.
-</p>
 
-<p>
 The long-term assumption was that human review requirements would gradually decrease as model reliability improved over time.
-</p>
 
-</div>
+---
 
-</section>
+## Operational Outcomes
 
-<section id="outcomes">
-
-<div class="card">
-
-<div class="section-label">
-Operational Outcomes
-</div>
-
-<h2>
-Observed Impact
-</h2>
-
-<p>
 The system produced measurable operational improvements within a relatively short deployment window.
-</p>
 
-<p>
 Observed outcomes included:
-</p>
 
-<ul>
-<li>onboarding compression from approximately 60 days to ~3 weeks</li>
-<li>support response times reduced to under 2 hours across ~90 clients</li>
-<li>significantly reduced repetitive operational workload</li>
-<li>increased consistency in content generation workflows</li>
-<li>approximately 4x revenue growth within ~70 days after scaling marketing deployment</li>
-</ul>
+* onboarding compression from approximately 60 days to ~3 weeks
+* support response times reduced to under 2 hours across ~90 clients
+* significantly reduced repetitive operational workload
+* increased consistency in content generation workflows
+* approximately 4x revenue growth within ~70 days after scaling marketing deployment
 
-<p>
 These outcomes were achieved without proportional increases in headcount.
-</p>
 
-</div>
+---
 
-</section>
+## Limitations & Operational Challenges
 
-<section id="limitations">
-
-<div class="card">
-
-<div class="section-label">
-Limitations & Operational Challenges
-</div>
-
-<h2>
-Scaling Constraints
-</h2>
-
-<p>
 The primary scaling bottlenecks were not model capabilities themselves but orchestration complexity and API economics.
-</p>
 
-<p>
 Several operational limitations emerged:
-</p>
 
-<ul>
-<li>increasing API costs</li>
-<li>synchronization complexity between workflow stages</li>
-<li>brittle scheduling dependencies</li>
-<li>prompt coordination overhead</li>
-<li>dependency on third-party providers</li>
-<li>noisy scraped data inputs</li>
-</ul>
+* increasing API costs
+* synchronization complexity between workflow stages
+* brittle scheduling dependencies
+* prompt coordination overhead
+* dependency on third-party providers
+* noisy scraped data inputs
 
-<p>
 Prompt engineering itself became a significant operational discipline due to the number of interconnected workflow stages.
-</p>
 
-<p>
 The system also accumulated orchestration complexity faster than initially anticipated.
-</p>
 
-<p>
 As workflows expanded, reasoning about system state and synchronization behavior became increasingly difficult using lightweight scheduling infrastructure alone.
-</p>
 
-<p>
 The dataset available before departure from the company was not large enough to draw strong conclusions regarding long-term hallucination behavior or context drift patterns.
-</p>
 
-</div>
+---
 
-</section>
+## Organizational Adoption
 
-<section id="adoption">
-
-<div class="card">
-
-<div class="section-label">
-Organizational Adoption
-</div>
-
-<h2>
-Staff Response & Buy-In
-</h2>
-
-<p>
 Initial staff reactions were mixed.
-</p>
 
-<p>
 Operational concerns centered around automation anxiety and uncertainty regarding role displacement.
-</p>
 
-<p>
 Adoption improved significantly once staff recognized the system’s primary purpose was operational scaling and workload reduction rather than direct replacement of human roles.
-</p>
 
-<p>
 In practice, most workflows still depended heavily on human validation and coordination.
-</p>
 
-</div>
+---
 
-</section>
+## Retrospective
 
-<section id="retrospective">
-
-<div class="card">
-
-<div class="section-label">
-Retrospective
-</div>
-
-<h2>
-Structural Insight
-</h2>
-
-<p>
 The most important insight from the project was that AI was not merely a productivity layer added onto an existing business.
-</p>
 
-<p>
 The larger shift was structural.
-</p>
 
-<p>
 Once AI systems became embedded directly into operational workflows:
-</p>
 
-<ul>
-<li>onboarding behavior changed</li>
-<li>staffing requirements changed</li>
-<li>pricing structures changed</li>
-<li>delivery timelines changed</li>
-<li>coordination overhead changed</li>
-<li>throughput constraints changed</li>
-</ul>
+* onboarding behavior changed
+* staffing requirements changed
+* pricing structures changed
+* delivery timelines changed
+* coordination overhead changed
+* throughput constraints changed
 
-<p>
 The most difficult problems were rarely model outputs themselves.
-</p>
 
-<p>
 The harder problems involved:
-</p>
 
-<ul>
-<li>workflow orchestration</li>
-<li>operational sequencing</li>
-<li>context continuity</li>
-<li>synchronization</li>
-<li>human validation</li>
-<li>state management</li>
-<li>reducing friction between system layers</li>
-</ul>
+* workflow orchestration
+* operational sequencing
+* context continuity
+* synchronization
+* human validation
+* state management
+* reducing friction between system layers
 
-<p>
 The system was operationally constrained, imperfect, and not infinitely scalable in its original form.
-</p>
 
-<p>
 However, it demonstrated that embedding AI directly into workflow architecture could fundamentally alter how a business operated rather than simply accelerating isolated tasks within existing processes.
-</p>
-
-</div>
-
-</section>
-
-<footer>
-Public technical archive · Eric Fricke · 2026
-</footer>
-
-</div>
-
-<div class="modal" id="hnModal">
-
-<div class="modal-content">
-
-<h2>
-HN Summary / Key Points
-</h2>
-
-<ul>
-<li>Built in mid-2023 before “agentic workflows” became mainstream terminology</li>
-<li>Began as a CRM wiki extension for inexperienced sales staff</li>
-<li>Evolved into a modular AI-native operational architecture</li>
-<li>ExpressionEngine module acted as orchestration + workflow state layer</li>
-<li>Payment event triggered full onboarding + provisioning pipeline</li>
-<li>Python scraping system built contextual client training objects</li>
-<li>Used OpenAI APIs + fine-tuning workflows for client-specific behavior</li>
-<li>~23 coordinated prompts across content workflow stages</li>
-<li>Supervisory model generated recursive optimization suggestions</li>
-<li>Human edits became feedback signals for downstream workflows</li>
-<li>Support response times reduced to under 2 hours across ~90 clients</li>
-<li>Onboarding compressed from ~60 days to ~3 weeks</li>
-<li>~4x revenue growth within ~70 days after scaling deployment</li>
-<li>Main bottlenecks became orchestration complexity + API economics</li>
-<li>Core insight: embedding AI into workflows changes business structure itself</li>
-</ul>
-
-<button class="close-btn" onclick="closeModal()">
-Close
-</button>
-
-</div>
-
-</div>
-
-<script>
-
-function openModal(){
-  document.getElementById('hnModal').classList.add('show');
-}
-
-function closeModal(){
-  document.getElementById('hnModal').classList.remove('show');
-}
-
-window.addEventListener('click', function(e){
-  const modal = document.getElementById('hnModal');
-
-  if(e.target === modal){
-    closeModal();
-  }
-});
-
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape'){
-    closeModal();
-  }
-});
-
-</script>
-
-</body>
-</html>
